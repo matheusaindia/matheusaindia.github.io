@@ -11,6 +11,7 @@
             --accent-blue: #2563eb;
             --accent-red: #dc2626;
             --accent-amber: #d97706;
+            --accent-green: #16a34a;
             --bg-body: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
@@ -71,7 +72,6 @@
         .search-box {
             position: relative;
             width: 100%;
-            max-width: 100%;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             border-radius: 12px;
         }
@@ -133,6 +133,10 @@
 
         .category-header.gov-type {
             border-left-color: var(--accent-amber);
+        }
+
+        .category-header.service-type {
+            border-left-color: var(--accent-green);
         }
 
         .category-header h2 {
@@ -247,7 +251,7 @@
         
         <header>
             <h1>Portal de Benefícios do INSS & Acesso gov.br</h1>
-            <p>Consulte requisitos por espécie, orientações para saques bloqueados e o passo a passo completo para criar ou recuperar sua senha da Conta gov.br.</p>
+            <p>Consulte requisitos por espécie, empréstimos, pagamentos bloqueados e o passo a passo para gerenciar sua senha gov.br.</p>
         </header>
 
         <!-- Barra de Pesquisa Interativa -->
@@ -256,7 +260,7 @@
                 <svg class="search-icon" viewBox="0 0 24 24">
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 </svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: B87, B41, Senha, Pagamento Bloqueado, Idade...)" onkeyup="filterCards()">
+                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: Empréstimo, Salário Maternidade, Senha Provisória, B80, B87...)" onkeyup="filterCards()">
             </div>
         </div>
 
@@ -264,14 +268,33 @@
             🔍 Nenhum benefício ou serviço foi encontrado para o termo pesquisado.
         </div>
 
-        <!-- CATEGORIA 1: CONTA GOV.BR -->
+        <!-- CATEGORIA 1: CONTA GOV.BR E SENHAS -->
         <section class="category-section">
             <div class="category-header gov-type">
-                <h2>1. Conta gov.br (Criação e Recuperação de Senha)</h2>
-                <p>O acesso ao Meu INSS exige uma conta gov.br em nível Prata ou Ouro</p>
+                <h2>1. Conta gov.br (Acesso, Senhas e Provisória)</h2>
+                <p>Gerenciamento de credenciais e primeiro acesso ao sistema gov.br</p>
             </div>
             <div class="cards-grid">
                 
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">PRIMEIRO ACESSO</span>
+                            <h3 class="card-title">Cadastrar Senha Provisória</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Passo a Passo (Gerada pelo Banco/Atendimento)</span>
+                            <ol>
+                                <li>Ao obter uma <strong>Senha Provisória</strong> (gerada pelo banco ou agência), acesse <strong>acesso.gov.br</strong>.</li>
+                                <li>Digite seu <strong>CPF</strong> e clique em <strong>"Continuar"</strong>.</li>
+                                <li>Digite a <strong>Senha Provisória</strong> recebida no campo de senha.</li>
+                                <li>O sistema solicitará imediatamente a criação de uma <strong>Nova Senha Definitiva</strong>.</li>
+                                <li>Crie uma nova senha forte (letras, números e símbolos) e confirme.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div>
                         <div class="card-header">
@@ -307,34 +330,37 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: SERVIÇOS DE BENEFÍCIOS (EMPRÉSTIMOS E BLOQUEIOS) -->
+        <section class="category-section">
+            <div class="category-header alert-type">
+                <h2>2. Soluções para Pagamentos e Empréstimos</h2>
+                <p>Bloqueios, desbloqueios para consignado e resgate de pagamentos retidos</p>
+            </div>
+            <div class="cards-grid">
+                
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-amber">CÓDIGO DE ACESSO</span>
-                            <h3 class="card-title">Gerar Código de Acesso / Nível</h3>
+                            <span class="badge badge-red">CONSIGNAÇÕES</span>
+                            <h3 class="card-title">Desbloqueio para Empréstimo</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Aumento de Nível (Prata/Ouro)</span>
-                            <p>Serviços como liberação de pagamentos exigem selo de verificação no gov.br:</p>
-                            <ul>
-                                <li><strong>Aumentar para Prata:</strong> Faça login utilizando as credenciais do seu Banco (Banco do Brasil, Caixa, Bradesco, Itaú, etc.).</li>
-                                <li><strong>Aumentar para Ouro:</strong> Realize a Validação Facial cruzando dados com a Carteira de Motorista (CNH) ou Certificado Digital.</li>
-                            </ul>
+                            <span class="req-label">Passo a Passo no Meu INSS</span>
+                            <ol>
+                                <li>Entre no app ou site <strong>Meu INSS</strong> com seu CPF e senha gov.br.</li>
+                                <li>Na barra de pesquisa principal, digite: <strong>"Bloqueio/Desbloqueio"</strong>.</li>
+                                <li>Selecione o serviço <strong>"Bloqueio/Desbloqueio de Benefício para Empréstimo"</strong>.</li>
+                                <li>Escolha a opção <strong>"Desbloquear"</strong>.</li>
+                                <li>Siga as instruções, anexe documento com foto (RG/CNH) e conclua o pedido.</li>
+                            </ol>
+                            <p style="margin-top: 8px; font-size: 0.8rem; color: #dc2626;"><em>Nota: Benefícios novos possuem bloqueio automático por 30 dias após a concessão.</em></p>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- CATEGORIA 2: PAGAMENTO NÃO RECEBIDO / BLOQUEADO -->
-        <section class="category-section">
-            <div class="category-header alert-type">
-                <h2>2. Pagamentos Bloqueados ou Não Recebidos</h2>
-                <p>Como regularizar valores retidos, suspensos ou não sacados no prazo regulamentar</p>
-            </div>
-            <div class="cards-grid">
-                
                 <div class="card">
                     <div>
                         <div class="card-header">
@@ -344,25 +370,7 @@
                         <div class="card-body">
                             <span class="req-label">Quando Utilizar</span>
                             <p>Indicado caso o benefício esteja ativo, mas o dinheiro não caiu na conta ou expirou o prazo de 60 dias para saque no banco (recolhimento por ausência de saque).</p>
-                            <p><strong>Motivos comuns:</strong> Cadastro desatualizado, falta de perícia ou ausência de Prova de Vida.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-red">PASSO A PASSO</span>
-                            <h3 class="card-title">Como Solicitar a Liberação</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Etapas Digitais no Meu INSS</span>
-                            <ol>
-                                <li>Acesse o app ou site <strong>Meu INSS</strong> com a senha gov.br.</li>
-                                <li>Clique na opção <strong>"Novo Pedido"</strong>.</li>
-                                <li>Digite na busca: <strong>"Solicitar Pagamento Não Recebido"</strong>.</li>
-                                <li>Atualize seus dados, anexe seu RG/CNH e confirme o envio.</li>
-                            </ol>
+                            <p><strong>Passo a passo:</strong> No Meu INSS, clique em <strong>"Novo Pedido"</strong> &rarr; busque por <strong>"Solicitar Pagamento Não Recebido"</strong> &rarr; confirme os dados e envie.</p>
                         </div>
                     </div>
                 </div>
@@ -370,10 +378,56 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 3: APOSENTADORIAS -->
+        <!-- CATEGORIA 3: AUXÍLIOS E SALÁRIO-MATERNIDADE -->
+        <section class="category-section">
+            <div class="category-header service-type">
+                <h2>3. Auxílios e Salário-Maternidade</h2>
+                <p>Benefícios temporários, regras de concessão e solicitação</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B80</span>
+                            <h3 class="card-title">Salário-Maternidade</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos e Regras</span>
+                            <p><strong>Duração:</strong> 120 dias (parto, adoção ou guarda judicial para fins de adoção) ou 14 dias em casos de aborto não criminoso.</p>
+                            <p><strong>Carência:</strong> 
+                                <ul>
+                                    <li><strong>Isento:</strong> Empregadas de carteira assinada e domésticas.</li>
+                                    <li><strong>10 meses:</strong> Contribuintes individuais (autônomas) e facultativas.</li>
+                                </ul>
+                            </p>
+                            <span class="req-label" style="margin-top: 8px;">Como Solicitar</span>
+                            <p>No app Meu INSS &rarr; <strong>"Novo Pedido"</strong> &rarr; digite <strong>"Salário-Maternidade"</strong> e anexe a Certidão de Nascimento do bebê.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B31</span>
+                            <h3 class="card-title">Incapacidade Temporária (Auxílio-Doença)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Critérios de Concessão</span>
+                            <p><strong>Duração:</strong> Afastamento superior a 15 dias consecutivos de trabalho.</p>
+                            <p><strong>Carência:</strong> 12 contribuições mensais (isento para acidentes do trabalho ou doenças graves especificadas em lei).</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 4: APOSENTADORIAS -->
         <section class="category-section">
             <div class="category-header">
-                <h2>3. Aposentadorias (Requisitos de Idade e Tempo)</h2>
+                <h2>4. Aposentadorias (Requisitos de Idade e Tempo)</h2>
                 <p>Regras vigentes de concessão após a Reforma da Previdência</p>
             </div>
             <div class="cards-grid">
@@ -417,7 +471,7 @@
                         <div class="card-body">
                             <span class="req-label">Critérios de Concessão</span>
                             <p><strong>Idade:</strong> Não há idade mínima.</p>
-                            <p><strong>Carência:</strong> 12 meses de contribuição (dispensada em acidentes de trabalho ou doenças graves em lei).</p>
+                            <p><strong>Carência:</strong> 12 meses de contribuição (dispensada em acidentes ou doenças graves).</p>
                             <p><strong>Avaliação:</strong> Laudo conclusivo da Perícia Médica Federal.</p>
                         </div>
                     </div>
@@ -426,28 +480,14 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 4: BENEFÍCIOS TEMPORÁRIOS E ASSISTENCIAIS -->
+        <!-- CATEGORIA 5: ASSISTENCIAIS (LOAS/BPC) -->
         <section class="category-section">
             <div class="category-header">
-                <h2>4. Auxílios e Benefícios Assistenciais (LOAS)</h2>
-                <p>Suporte financeiro para casos de saúde e vulnerabilidade social</p>
+                <h2>5. Benefícios Assistenciais (LOAS / BPC)</h2>
+                <p>Suporte financeiro sem exigência de contribuição previdenciária</p>
             </div>
             <div class="cards-grid">
                 
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-green">ESPÉCIE B31</span>
-                            <h3 class="card-title">Incapacidade Temporária</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Critérios de Concessão</span>
-                            <p><strong>Duração:</strong> Afastamento superior a 15 dias consecutivos.</p>
-                            <p><strong>Carência:</strong> 12 contribuições mensais (isento para acidentes do trabalho).</p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="card">
                     <div>
                         <div class="card-header">
@@ -471,7 +511,7 @@
                         <div class="card-body">
                             <span class="req-label">Critérios de Concessão</span>
                             <p><strong>Idade Mínima:</strong> Sem limite de idade.</p>
-                            <p><strong>Exigências:</strong> Impedimentos físicos/mentais de longo prazo (mínimo 2 anos) e renda per capita até 1/4 do salário mínimo.</p>
+                            <p><strong>Exigências:</strong> Impedimentos de longo prazo (mínimo 2 anos) e renda per capita de até 1/4 do salário mínimo.</p>
                         </div>
                     </div>
                 </div>
@@ -504,7 +544,6 @@
                 }
             });
 
-            // Esconde seções vazias que não possuem nenhum cartão visível
             sections.forEach(section => {
                 const visibleCards = section.querySelectorAll('.card:not(.hidden)');
                 if (visibleCards.length === 0) {
@@ -514,7 +553,6 @@
                 }
             });
 
-            // Exibe mensagem caso nenhum resultado seja encontrado
             if (totalVisible === 0) {
                 noResults.style.display = 'block';
             } else {
