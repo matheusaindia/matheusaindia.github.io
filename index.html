@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Benefícios do INSS e Serviços gov.br (Regras 2026)</title>
+    <title>Portal de Benefícios do INSS e Guias de Contribuição (2026)</title>
     <style>
         :root {
             --primary: #0f172a;
@@ -13,6 +13,7 @@
             --accent-amber: #d97706;
             --accent-green: #16a34a;
             --accent-indigo: #4f46e5;
+            --accent-teal: #0d9488;
             --bg-body: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
@@ -143,6 +144,7 @@
         .category-header.gov-type { border-left-color: var(--accent-amber); }
         .category-header.service-type { border-left-color: var(--accent-green); }
         .category-header.extrato-type { border-left-color: var(--accent-indigo); }
+        .category-header.code-type { border-left-color: var(--accent-teal); }
 
         .category-header h2 {
             font-size: 1.35rem;
@@ -203,6 +205,7 @@
         .badge-red { background-color: #fee2e2; color: #991b1b; }
         .badge-amber { background-color: #fef3c7; color: #92400e; }
         .badge-indigo { background-color: #e0e7ff; color: #3730a3; }
+        .badge-teal { background-color: #ccfbf1; color: #115e59; }
 
         .card-title {
             font-size: 1.15rem;
@@ -256,9 +259,9 @@
     <div class="container">
         
         <header>
-            <h1>Portal de Benefícios do INSS & Acesso gov.br</h1>
-            <p>Guia de serviços, regras de transição de aposentadorias, extratos, consignado e acesso gov.br.</p>
-            <span class="tag-year">Atendimento com Diretrizes Vigentes (2026)</span>
+            <h1>Portal de Benefícios do INSS & Guia de Contribuição</h1>
+            <p>Códigos de pagamento para autônomos, regras de transição de aposentadoria, extratos, consignado e acesso gov.br.</p>
+            <span class="tag-year">Valores e Alíquotas Vigentes (2026)</span>
         </header>
 
         <!-- Barra de Pesquisa Interativa -->
@@ -267,18 +270,88 @@
                 <svg class="search-icon" viewBox="0 0 24 24">
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 </svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: B87, Reabilitação, Salário Maternidade, Desbloqueio Consignado, Pontos 2026...)" onkeyup="filterCards()">
+                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: Código 1007, 1163, Autônomo, Salário Maternidade, Desbloqueio Consignado, B87...)" onkeyup="filterCards()">
             </div>
         </div>
 
         <div id="noResults" class="no-results">
-            🔍 Nenhum benefício ou serviço foi encontrado para o termo pesquisado.
+            🔍 Nenhum benefício ou código foi encontrado para o termo pesquisado.
         </div>
 
-        <!-- CATEGORIA 1: SERVIÇOS E EXTRATOS DO MEU INSS -->
+        <!-- CATEGORIA 1: CÓDIGOS DE CONTRIBUIÇÃO E VALORES DE AUTÔNOMO (NOVA CATEGORIA) -->
+        <section class="category-section">
+            <div class="category-header code-type">
+                <h2>1. Códigos e Valores do Contribuinte Individual (2026)</h2>
+                <p>Guias de recolhimento GPS para autônomos, liberais e facultativos</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">CÓDIGO 1007</span>
+                            <h3 class="card-title">Plano Normal (20% Mensal)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Autônomos / Contribuinte Individual</span>
+                            <p><strong>Alíquota:</strong> 20% do salário declarado (entre o salário mínimo e o teto).</p>
+                            <p><strong>Valores Mensais em 2026:</strong> De <strong>R$ 324,20</strong> (sobre o salário mínimo de R$ 1.621) até <strong>R$ 1.695,11</strong> (sobre o teto de R$ 8.475,55).</p>
+                            <p><strong>Direitos:</strong> Dá direito a todos os benefícios, inclusive aposentadoria por tempo de contribuição (regras de transição).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">CÓDIGO 1163</span>
+                            <h3 class="card-title">Plano Simplificado (11% Mensal)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Autônomos que Prestam Serviço a PF</span>
+                            <p><strong>Alíquota:</strong> 11% calculado obrigatoriamente sobre o salário mínimo.</p>
+                            <p><strong>Valor Fixo em 2026:</strong> <strong>R$ 178,31</strong> ao mês.</p>
+                            <p><strong>Direitos:</strong> Aposentadoria por Idade e auxílios. Não contabiliza para aposentadoria por tempo sem complementação prévia de 9% (código 1295).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">CÓDIGO 1120</span>
+                            <h3 class="card-title">Serviço a Pessoa Jurídica (20%)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Autônomos que Prestam Serviços a Empresas</span>
+                            <p><strong>Alíquota:</strong> 20% sobre o valor do contrato ou nota fiscal.</p>
+                            <p><strong>Dedução:</strong> A empresa tomadora de serviço deve reter 11% e recolher a diferença. Utilizado quando o segurado complementa por conta própria.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">CÓDIGO 1406 / 1473</span>
+                            <h3 class="card-title">Segurado Facultativo (Sem Renda)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Estudantes, Donas de Casa e Desempregados</span>
+                            <p>• <strong>Código 1406 (20% Plano Normal):</strong> R$ 324,20 até R$ 1.695,11.</p>
+                            <p>• <strong>Código 1473 (11% Simplificado):</strong> R$ 178,31 fixo ao mês.</p>
+                            <p>• <strong>Código 1929 (5% Baixa Renda):</strong> R$ 81,05 fixo ao mês (exige validação no CadÚnico).</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: SERVIÇOS E EXTRATOS DO MEU INSS -->
         <section class="category-section">
             <div class="category-header extrato-type">
-                <h2>1. Extratos e Serviços do Meu INSS</h2>
+                <h2>2. Extratos e Serviços do Meu INSS</h2>
                 <p>Alteração de dados bancários, emissão de informes e atualização de cadastro de trabalho</p>
             </div>
             <div class="cards-grid">
@@ -355,10 +428,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 2: CONTA GOV.BR E SENHAS -->
+        <!-- CATEGORIA 3: CONTA GOV.BR E SENHAS -->
         <section class="category-section">
             <div class="category-header gov-type">
-                <h2>2. Conta gov.br (Criação, Níveis e Senha Provisória)</h2>
+                <h2>3. Conta gov.br (Criação, Níveis e Senha Provisória)</h2>
                 <p>Passo a passo de validações de segurança e recuperação de acessos</p>
             </div>
             <div class="cards-grid">
@@ -419,10 +492,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 3: EMPRÉSTIMO CONSIGNADO E PAGAMENTOS BLOQUEADOS -->
+        <!-- CATEGORIA 4: EMPRÉSTIMO CONSIGNAÇÃO E PAGAMENTOS RETIDOS -->
         <section class="category-section">
             <div class="category-header alert-type">
-                <h2>3. Soluções para Empréstimos e Pagamentos Retidos</h2>
+                <h2>4. Soluções para Empréstimos e Pagamentos Retidos</h2>
                 <p>Regras para desativar bloqueios e resgatar valores não sacados</p>
             </div>
             <div class="cards-grid">
@@ -462,10 +535,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 4: AUXÍLIOS E SALÁRIO-MATERNIDADE -->
+        <!-- CATEGORIA 5: AUXÍLIOS E SALÁRIO-MATERNIDADE -->
         <section class="category-section">
             <div class="category-header service-type">
-                <h2>4. Auxílios e Salário-Maternidade</h2>
+                <h2>5. Auxílios e Salário-Maternidade</h2>
                 <p>Regras de cobertura para saúde, afastamentos e licenças</p>
             </div>
             <div class="cards-grid">
@@ -477,10 +550,10 @@
                             <h3 class="card-title">Salário-Maternidade</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Critérios Vigentes</span>
+                            <span class="req-label">Regras Atualizadas (IN 188/2025)</span>
                             <p><strong>Duração:</strong> 120 dias para parto, adoção ou guarda para fins de adoção (14 dias para aborto não criminoso).</p>
                             <p><strong>Piso / Teto em 2026:</strong> O valor varia entre o salário mínimo (R$ 1.621,00) e o teto previdenciário (R$ 8.475,55).</p>
-                            <p><strong>Carência:</strong> Isenta para empregadas formais, domésticas, autônomas/MEI e facultativas.</p>
+                            <p><strong>Isenção de Carência:</strong> Conforme decisão do STF e regulamentação do INSS, <strong>não há carência mínima de 10 contribuições</strong> para MEI, autônomas, facultativas e rurais. Exige-se apenas a qualidade de segurada na data do fato gerador.</p>
                         </div>
                     </div>
                 </div>
@@ -502,10 +575,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 5: APOSENTADORIAS E REGRAS DE TRANSIÇÃO -->
+        <!-- CATEGORIA 6: APOSENTADORIAS E REGRAS DE TRANSIÇÃO -->
         <section class="category-section">
             <div class="category-header">
-                <h2>5. Aposentadorias e Regras de Transição (2026)</h2>
+                <h2>6. Aposentadorias e Regras de Transição (2026)</h2>
                 <p>Requisitos permanentes e regras de transição em vigor</p>
             </div>
             <div class="cards-grid">
@@ -533,8 +606,8 @@
                         <div class="card-body">
                             <span class="req-label">Critérios de Transição para 2026</span>
                             <p><strong>Pontos Progressivos (2026):</strong></p>
-                            <p>• Mulheres: 93 pontos (30 anos de contribuição).</p>
-                            <p>• Homens: 103 pontos (35 anos de contribuição).</p>
+                            <p>• Mulheres: 93 pontos (mínimo 30 anos de contribuição).</p>
+                            <p>• Homens: 103 pontos (mínimo 35 anos de contribuição).</p>
                             <p><strong>Idade Mínima Progressiva (2026):</strong></p>
                             <p>• Mulheres: 59 anos e 6 meses de idade + 30 anos de contribuição.</p>
                             <p>• Homens: 64 anos e 6 meses de idade + 35 anos de contribuição.</p>
@@ -575,10 +648,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 6: ASSISTENCIAIS (LOAS / BPC 2026) -->
+        <!-- CATEGORIA 7: ASSISTENCIAIS (LOAS / BPC 2026) -->
         <section class="category-section">
             <div class="category-header">
-                <h2>6. Benefícios Assistenciais (LOAS / BPC - 2026)</h2>
+                <h2>7. Benefícios Assistenciais (LOAS / BPC - 2026)</h2>
                 <p>Prestação continuada sem exigência de contribuição previdenciária</p>
             </div>
             <div class="cards-grid">
