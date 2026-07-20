@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Benefícios do INSS - Espécies Atualizadas</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e3a8a;
+            --accent-blue: #2563eb;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            padding: 24px 16px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #ffffff;
+            padding: 36px 28px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: #93c5fd;
+            font-size: 1.05rem;
+            max-width: 700px;
+        }
+
+        /* Seção e Títulos */
+        .category-section {
+            margin-bottom: 40px;
+        }
+
+        .category-header {
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 12px;
+            margin-bottom: 20px;
+        }
+
+        .category-header h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Grid de Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        /* Estilo dos Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-header {
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        /* Cores das Badges por Categoria */
+        .badge-blue { background-color: #dbeafe; color: #1e40af; }
+        .badge-green { background-color: #dcfce7; color: #166534; }
+        .badge-amber { background-color: #fef3c7; color: #92400e; }
+        .badge-purple { background-color: #f3e8ff; color: #6b21a8; }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .card-body {
+            font-size: 0.925rem;
+            color: #475569;
+        }
+
+        .req-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body p {
+            margin-bottom: 8px;
+        }
+
+        .card-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Benefícios do INSS e Suas Espécies</h1>
+            <p>Guia estruturado com os códigos das espécies previdenciárias e assistenciais atualizados.</p>
+        </header>
+
+        <!-- CATEGORIA 1: APOSENTADORIAS -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>1. Aposentadorias</h2>
+                <p>Benefícios definitivos para segurados urbanos, rurais e especiais</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-blue">ESPÉCIE B41</span>
+                            <h3 class="card-title">Aposentadoria por Idade Urbana</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p><strong>Idade Mínima:</strong> 65 anos (Homens) / 62 anos (Mulheres).</p>
+                            <p><strong>Carência:</strong> 15 anos de contribuição (180 contribuições mensais).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-blue">ESPÉCIE B08</span>
+                            <h3 class="card-title">Aposentadoria por Idade Rural</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p><strong>Idade Mínima:</strong> 60 anos (Homens) / 55 anos (Mulheres).</p>
+                            <p><strong>Comprovação:</strong> 15 anos de trabalho e atividade na agricultura familiar/trabalho rural.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-blue">ESPÉCIE B42</span>
+                            <h3 class="card-title">Tempo de Contribuição</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Direito adquirido pré-Reforma ou regras de transição vigentes (Pontos, Pedágio 50%, Pedágio 100% ou Idade Progressiva).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-blue">ESPÉCIE B32</span>
+                            <h3 class="card-title">Incapacidade Permanente</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Antiga Aposentadoria por Invalidez. Exige incapacidade total e permanente verificada por perícia médica do INSS.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-blue">ESPÉCIE B57 / B46</span>
+                            <h3 class="card-title">Aposentadoria Especial</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Comprovação de trabalho sob exposição ininterrupta a agentes nocivos à saúde (15, 20 ou 25 anos de atividade especial).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-blue">ESPÉCIE B85 / B86</span>
+                            <h3 class="card-title">Aposentadoria PcD</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Destinada à Pessoa com Deficiência. Regras diferenciadas por Idade (B85) ou Tempo de Contribuição (B86) conforme o grau da deficiência.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: AUXÍLIOS -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>2. Auxílios e Benefícios Temporários</h2>
+                <p>Afazeres temporários, acidentes, maternidade e suporte familiar</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B31</span>
+                            <h3 class="card-title">Incapacidade Temporária</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Antigo Auxílio-Doença previdenciário. Exige afastamento do trabalho por mais de 15 dias e carência de 12 meses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B91</span>
+                            <h3 class="card-title">Auxílio-Incapacidade Acidentário</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Decorrente de acidente de trabalho ou doença ocupacional. Sem exigência de carência e com estabilidade profissional de 12 meses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B36</span>
+                            <h3 class="card-title">Auxílio-Acidente</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Benefício indenizatório pago ao segurado que desenvolve sequela permanente que reduz a capacidade laboral após a consolidação das lesões.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B80</span>
+                            <h3 class="card-title">Salário-Maternidade</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Pago no afastamento por parto, adoção, guarda judicial ou aborto não criminoso. Duração padrão de 120 dias.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B25</span>
+                            <h3 class="card-title">Auxílio-Reclusão</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Devido aos dependentes do segurado de baixa renda preso em regime fechado. Exige carência mínima de 24 meses de contribuição.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B09</span>
+                            <h3 class="card-title">Salário-Família</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Valor adicional pago proporcionalmente por filho de até 14 anos (ou inválido) para trabalhadores com renda dentro do teto legal de baixa renda.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 3: PENSÕES -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>3. Pensões por Morte</h2>
+                <p>Proteção financeira aos dependentes do segurado falecido</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">ESPÉCIE B21</span>
+                            <h3 class="card-title">Pensão por Morte Urbana</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Paga aos dependentes do segurado urbano falecido (cônjuge, companheiro, filhos menores ou inválidos).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">ESPÉCIE B22</span>
+                            <h3 class="card-title">Pensão por Morte Rural</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Devida aos dependentes do trabalhador ou segurado especial rural, mediante comprovação do trabalho no campo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">ESPÉCIE B93</span>
+                            <h3 class="card-title">Pensão por Acidente de Trabalho</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Concedida aos dependentes quando o falecimento do segurado for consequência direta de acidente ou doença de trabalho.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 4: BENEFÍCIOS ASSISTENCIAIS -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>4. Benefícios Assistenciais (LOAS / BPC)</h2>
+                <p>Garantia de renda sem necessidade de contribuições anteriores ao INSS</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-purple">ESPÉCIE B87</span>
+                            <h3 class="card-title">BPC - Pessoa com Deficiência</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Paga 1 salário mínimo mensal. Exige comprovação de deficiência de longo prazo + Renda familiar por pessoa de até 1/4 do salário mínimo + CadÚnico.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-purple">ESPÉCIE B88</span>
+                            <h3 class="card-title">BPC - Idoso (65 anos ou +)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Paga 1 salário mínimo a idosos com 65 anos ou mais em situação de vulnerabilidade social e renda familiar reduzida.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-purple">ESPÉCIE B18</span>
+                            <h3 class="card-title">Auxílio-Inclusão</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos Básicos</span>
+                            <p>Pago no valor de 50% do BPC ao beneficiário PcD que ingressa no mercado de trabalho formal com carteira assinada.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>Guia de Benefícios e Espécies do INSS &bull; Layout em Cards Responsivos</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
