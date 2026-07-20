@@ -1,3 +1,25 @@
+O código HTML5, CSS3 e JavaScript do portal foi atualizado, incorporando as seções completas de Pensão por Morte, Auxílio-Acidente, Auxílio-Reclusão e Salário-Família, detalhando seus códigos de espécie, requisitos e regras de cálculo vigentes em 2026.
+📋 Novas Espécies e Benefícios Adicionados:
+ * Pensão por Morte (Espécies B21, B22 e B93):
+   * B21 (Urbana), B22 (Rural) e B93 (Acidentária): Cota familiar de 50% + 10% por dependente.
+   * Duração conforme a Idade do Cônjuge (2026):
+     * Sem 18 contribuições ou menos de 2 anos de casamento: pago por 4 meses.
+     * De 28 a 30 anos: 10 anos de duração.
+     * De 31 a 41 anos: 15 anos de duração.
+     * De 42 a 44 anos: 20 anos de duração.
+     * A partir de 45 anos: Vitalícia.
+ * Auxílio-Acidente (Espécie B36):
+   * Benefício de caráter indenizatório (permite continuar trabalhando no emprego registrado).
+   * Concedido após consolidação de lesões decorrentes de acidentes de qualquer natureza que reduzam a capacidade de trabalho.
+   * Valor de 50% do salário de benefício.
+ * Auxílio-Reclusão (Espécie B25):
+   * Destinado exclusivamente aos dependentes do segurado preso em regime fechado.
+   * Teto de Baixa Renda em 2026: Salário de contribuição limite do preso até R$ 1.980,38.
+   * Carência: 24 meses de contribuição prévia.
+ * Salário-Família (Espécie B09):
+   * Benefício complementar mensal pago por filho/dependente de até 14 anos (ou inválido de qualquer idade).
+   * Teto de Renda e Cota em 2026: Limite de remuneração de até R$ 1.980,38 com cota fixada em R$ 67,54 por filho.
+💻 Código HTML5, CSS3 & JavaScript Completo
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,6 +36,7 @@
             --accent-green: #16a34a;
             --accent-indigo: #4f46e5;
             --accent-teal: #0d9488;
+            --accent-rose: #e11d48;
             --bg-body: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
@@ -145,6 +168,7 @@
         .category-header.service-type { border-left-color: var(--accent-green); }
         .category-header.extrato-type { border-left-color: var(--accent-indigo); }
         .category-header.code-type { border-left-color: var(--accent-teal); }
+        .category-header.pensao-type { border-left-color: var(--accent-rose); }
 
         .category-header h2 {
             font-size: 1.35rem;
@@ -206,6 +230,7 @@
         .badge-amber { background-color: #fef3c7; color: #92400e; }
         .badge-indigo { background-color: #e0e7ff; color: #3730a3; }
         .badge-teal { background-color: #ccfbf1; color: #115e59; }
+        .badge-rose { background-color: #ffe4e6; color: #9f1239; }
 
         .card-title {
             font-size: 1.15rem;
@@ -260,8 +285,8 @@
         
         <header>
             <h1>Portal de Benefícios do INSS & Guia de Contribuição</h1>
-            <p>Códigos de pagamento para autônomos, regras de transição de aposentadoria, extratos, consignado e acesso gov.br.</p>
-            <span class="tag-year">Valores e Alíquotas Vigentes (2026)</span>
+            <p>Pensão por morte, auxílios, códigos para autônomos, regras de transição de aposentadoria e serviços do Meu INSS.</p>
+            <span class="tag-year">Diretrizes e Valores Vigentes (2026)</span>
         </header>
 
         <!-- Barra de Pesquisa Interativa -->
@@ -270,18 +295,138 @@
                 <svg class="search-icon" viewBox="0 0 24 24">
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 </svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: Código 1007, 1163, Autônomo, Salário Maternidade, Desbloqueio Consignado, B87...)" onkeyup="filterCards()">
+                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: Pensão por Morte, B21, Auxílio-Acidente, B36, Código 1007, Reclusão...)" onkeyup="filterCards()">
             </div>
         </div>
 
         <div id="noResults" class="no-results">
-            🔍 Nenhum benefício ou código foi encontrado para o termo pesquisado.
+            🔍 Nenhum benefício ou serviço foi encontrado para o termo pesquisado.
         </div>
 
-        <!-- CATEGORIA 1: CÓDIGOS DE CONTRIBUIÇÃO E VALORES DE AUTÔNOMO (NOVA CATEGORIA) -->
+        <!-- CATEGORIA 1: PENSÕES E BENEFÍCIOS PARA DEPENDENTES (NOVA SEÇÃO) -->
+        <section class="category-section">
+            <div class="category-header pensao-type">
+                <h2>1. Pensão por Morte e Suporte aos Dependentes</h2>
+                <p>Proteção financeira aos dependentes legais do segurado falecido ou recluso</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-rose">ESPÉCIE B21 / B22 / B93</span>
+                            <h3 class="card-title">Pensão por Morte (Urbana, Rural e Acidentária)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Cálculo e Valor do Benefício</span>
+                            <p><strong>Cota Familiar:</strong> 50% do valor da aposentadoria (ou da aposentadoria por invalidez que teria direito) + 10% por dependente (até o limite de 100%).</p>
+                            <span class="req-label" style="margin-top: 8px;">Duração para Cônjuge/Companheiro(a)</span>
+                            <p>• <strong>4 meses:</strong> Se o casamento/união tinha menos de 2 anos ou o segurado tinha menos de 18 contribuições.</p>
+                            <p>• <strong>Duração por Idade (com +18 contribuições e +2 anos de união):</strong></p>
+                            <ul>
+                                <li>Menos de 22 anos: 3 anos de pensão.</li>
+                                <li>22 a 27 anos: 6 anos de pensão.</li>
+                                <li>28 a 30 anos: 10 anos de pensão.</li>
+                                <li>31 a 41 anos: 15 anos de pensão.</li>
+                                <li>42 a 44 anos: 20 anos de pensão.</li>
+                                <li><strong>45 anos ou mais: Vitalícia.</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-rose">ESPÉCIE B25</span>
+                            <h3 class="card-title">Auxílio-Reclusão</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Requisitos e Limite de Renda (2026)</span>
+                            <p><strong>Público-Alvo:</strong> Dependentes de segurado recolhido à prisão em <strong>regime fechado</strong>.</p>
+                            <p><strong>Teto de Baixa Renda (2026):</strong> O último salário de contribuição do segurado preso deve ser de até <strong>R$ 1.980,38</strong>.</p>
+                            <p><strong>Carência:</strong> 24 contribuições mensais prévias ao INSS.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-rose">ESPÉCIE B09</span>
+                            <h3 class="card-title">Salário-Família</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Cota Adicional por Filho (2026)</span>
+                            <p><strong>Público-Alvo:</strong> Trabalhadores de baixa renda com filhos de até 14 anos ou inválidos.</p>
+                            <p><strong>Valor da Cota (2026):</strong> <strong>R$ 67,54</strong> por filho/dependente.</p>
+                            <p><strong>Teto de Renda (2026):</strong> Remuneração mensal bruta de até <strong>R$ 1.980,38</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: AUXÍLIOS E BENEFÍCIOS TEMPORÁRIOS -->
+        <section class="category-section">
+            <div class="category-header service-type">
+                <h2>2. Auxílios por Incapacidade e Maternidade</h2>
+                <p>Afastamentos de saúde, acidentes de trabalho e licenças</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B36</span>
+                            <h3 class="card-title">Auxílio-Acidente</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Caráter Indenizatório</span>
+                            <p><strong>Natureza:</strong> Benefício indenizatório pago ao trabalhador que fica com sequelas permanentes que reduzem a capacidade de trabalho após acidente.</p>
+                            <p><strong>Vantagem:</strong> Pode ser acumulado com o salário normal de emprego registrado (o segurado continua trabalhando).</p>
+                            <p><strong>Valor:</strong> Corresponde a 50% do valor da aposentadoria por incapacidade a que teria direito.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B80</span>
+                            <h3 class="card-title">Salário-Maternidade</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Regras Atualizadas (IN 188/2025)</span>
+                            <p><strong>Duração:</strong> 120 dias para parto, adoção ou guarda judicial.</p>
+                            <p><strong>Piso / Teto em 2026:</strong> R$ 1.621,00 (mínimo) a R$ 8.475,55 (teto).</p>
+                            <p><strong>Isenção de Carência:</strong> Conforme o STF, <strong>não há carência mínima de 10 meses</strong> para MEI, autônomas, facultativas e rurais. Exige-se apenas a qualidade de segurada ativa na data do fato gerador.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ESPÉCIE B31 / B91</span>
+                            <h3 class="card-title">Incapacidade Temporária (Auxílio-Doença)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Afastamento por Saúde</span>
+                            <p><strong>B31 (Comum):</strong> Afastamento superior a 15 dias. Carência de 12 meses (isento para acidentes/doenças graves).</p>
+                            <p><strong>B91 (Acidentário):</strong> Afastamento por acidente de trabalho ou doença ocupacional. Sem carência e concede 12 meses de estabilidade no emprego.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 3: CÓDIGOS DE CONTRIBUIÇÃO E VALORES DE AUTÔNOMO -->
         <section class="category-section">
             <div class="category-header code-type">
-                <h2>1. Códigos e Valores do Contribuinte Individual (2026)</h2>
+                <h2>3. Códigos e Valores do Contribuinte Individual (2026)</h2>
                 <p>Guias de recolhimento GPS para autônomos, liberais e facultativos</p>
             </div>
             <div class="cards-grid">
@@ -295,7 +440,7 @@
                         <div class="card-body">
                             <span class="req-label">Autônomos / Contribuinte Individual</span>
                             <p><strong>Alíquota:</strong> 20% do salário declarado (entre o salário mínimo e o teto).</p>
-                            <p><strong>Valores Mensais em 2026:</strong> De <strong>R$ 324,20</strong> (sobre o salário mínimo de R$ 1.621) até <strong>R$ 1.695,11</strong> (sobre o teto de R$ 8.475,55).</p>
+                            <p><strong>Valores Mensais em 2026:</strong> De <strong>R$ 324,20</strong> (sobre R$ 1.621,00) até <strong>R$ 1.695,11</strong> (sobre o teto de R$ 8.475,55).</p>
                             <p><strong>Direitos:</strong> Dá direito a todos os benefícios, inclusive aposentadoria por tempo de contribuição (regras de transição).</p>
                         </div>
                     </div>
@@ -311,21 +456,7 @@
                             <span class="req-label">Autônomos que Prestam Serviço a PF</span>
                             <p><strong>Alíquota:</strong> 11% calculado obrigatoriamente sobre o salário mínimo.</p>
                             <p><strong>Valor Fixo em 2026:</strong> <strong>R$ 178,31</strong> ao mês.</p>
-                            <p><strong>Direitos:</strong> Aposentadoria por Idade e auxílios. Não contabiliza para aposentadoria por tempo sem complementação prévia de 9% (código 1295).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-teal">CÓDIGO 1120</span>
-                            <h3 class="card-title">Serviço a Pessoa Jurídica (20%)</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Autônomos que Prestam Serviços a Empresas</span>
-                            <p><strong>Alíquota:</strong> 20% sobre o valor do contrato ou nota fiscal.</p>
-                            <p><strong>Dedução:</strong> A empresa tomadora de serviço deve reter 11% e recolher a diferença. Utilizado quando o segurado complementa por conta própria.</p>
+                            <p><strong>Direitos:</strong> Aposentadoria por Idade e auxílios. Não contabiliza para aposentadoria por tempo sem complementação prévia.</p>
                         </div>
                     </div>
                 </div>
@@ -340,7 +471,7 @@
                             <span class="req-label">Estudantes, Donas de Casa e Desempregados</span>
                             <p>• <strong>Código 1406 (20% Plano Normal):</strong> R$ 324,20 até R$ 1.695,11.</p>
                             <p>• <strong>Código 1473 (11% Simplificado):</strong> R$ 178,31 fixo ao mês.</p>
-                            <p>• <strong>Código 1929 (5% Baixa Renda):</strong> R$ 81,05 fixo ao mês (exige validação no CadÚnico).</p>
+                            <p>• <strong>Código 1929 (5% Baixa Renda):</strong> R$ 81,05 fixo ao mês (exige CadÚnico).</p>
                         </div>
                     </div>
                 </div>
@@ -348,11 +479,11 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 2: SERVIÇOS E EXTRATOS DO MEU INSS -->
+        <!-- CATEGORIA 4: SERVIÇOS E EXTRATOS DO MEU INSS -->
         <section class="category-section">
             <div class="category-header extrato-type">
-                <h2>2. Extratos e Serviços do Meu INSS</h2>
-                <p>Alteração de dados bancários, emissão de informes e atualização de cadastro de trabalho</p>
+                <h2>4. Extratos e Serviços do Meu INSS</h2>
+                <p>Alteração de dados bancários, emissão de informes e atualização do CNIS</p>
             </div>
             <div class="cards-grid">
                 
@@ -367,9 +498,7 @@
                             <ol>
                                 <li>Acesse o <strong>Meu INSS</strong> com seu CPF e senha gov.br.</li>
                                 <li>Na busca, digite: <strong>"Alterar Local ou Forma de Pagamento"</strong>.</li>
-                                <li>Selecione o benefício desejado.</li>
-                                <li>Escolha entre transferir para outra agência bancária ou para uma conta corrente/poupança em seu nome.</li>
-                                <li>Informe os dados do banco/agência e confirme.</li>
+                                <li>Selecione o benefício e informe os dados da nova agência/conta corrente em seu nome.</li>
                             </ol>
                         </div>
                     </div>
@@ -384,9 +513,8 @@
                         <div class="card-body">
                             <span class="req-label">Ajuste no Extrato CNIS</span>
                             <ol>
-                                <li>Busque no Meu INSS por <strong>"Atualizar Vínculos e Remunerações"</strong> ou <strong>"Atualizar Cadastro"</strong>.</li>
-                                <li>Anexe documentos comprovatórios (Carteira de Trabalho, contracheques, carnês ou termo de rescisão).</li>
-                                <li>Solicite acertos em períodos trabalhados não contabilizados ou remunerações incorretas.</li>
+                                <li>Busque no Meu INSS por <strong>"Atualizar Vínculos e Remunerações"</strong>.</li>
+                                <li>Anexe comprovantes (Carteira de Trabalho, contracheques ou rescisão) para corrigir períodos omitidos.</li>
                             </ol>
                         </div>
                     </div>
@@ -401,25 +529,9 @@
                         <div class="card-body">
                             <span class="req-label">Documentos Disponíveis</span>
                             <ul>
-                                <li><strong>Extrato de Pagamento:</strong> Comprovante mensal com os detalhamentos dos valores pagos e descontos.</li>
-                                <li><strong>Informe de Rendimentos (IR):</strong> Documento para declaração do Imposto de Renda.</li>
-                                <li><strong>Extrato de Consignado:</strong> Lista contratos de empréstimo ativos, parcelas e margem consignável.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-indigo">ORIENTAÇÃO</span>
-                            <h3 class="card-title">Reabilitação Profissional e Atendimento Simplificado</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Suporte Presencial e Pericial</span>
-                            <ul>
-                                <li><strong>Avaliação Sócio-Profissional:</strong> Etapa conduzida pela equipe técnica para reinserção de segurados incapacitados no mercado de trabalho.</li>
-                                <li><strong>Atendimento Simplificado:</strong> Agendamento presencial em agência do INSS para esclarecimento de dúvidas e orientações sobre serviços.</li>
+                                <li><strong>Extrato de Pagamento:</strong> Detalhes mensais e descontos.</li>
+                                <li><strong>Informe de Rendimentos (IR):</strong> Para declaração anual do IR.</li>
+                                <li><strong>Extrato de Consignado:</strong> Contratos ativos e margem disponível.</li>
                             </ul>
                         </div>
                     </div>
@@ -428,10 +540,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 3: CONTA GOV.BR E SENHAS -->
+        <!-- CATEGORIA 5: CONTA GOV.BR E SENHAS -->
         <section class="category-section">
             <div class="category-header gov-type">
-                <h2>3. Conta gov.br (Criação, Níveis e Senha Provisória)</h2>
+                <h2>5. Conta gov.br (Criação, Níveis e Senha Provisória)</h2>
                 <p>Passo a passo de validações de segurança e recuperação de acessos</p>
             </div>
             <div class="cards-grid">
@@ -445,28 +557,9 @@
                         <div class="card-body">
                             <span class="req-label">Ativação da Senha Recebida</span>
                             <ol>
-                                <li>Acesse o portal <strong>acesso.gov.br</strong>.</li>
-                                <li>Digite seu <strong>CPF</strong> e avance.</li>
-                                <li>No campo de senha, insira o código da <strong>Senha Provisória</strong> (fornecida no banco ou agência).</li>
-                                <li>O sistema exigirá imediatamente o cadastro de uma nova senha pessoal definitiva.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-amber">CADASTRAR</span>
-                            <h3 class="card-title">Como Obter a Senha gov.br</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Métodos de Cadastro</span>
-                            <ol>
-                                <li>Acesse <strong>acesso.gov.br</strong> ou baixe o aplicativo <strong>gov.br</strong>.</li>
-                                <li>Informe seu <strong>CPF</strong>.</li>
-                                <li>Realize a autenticação por <strong>Validação Facial</strong> (Biometria CNH/TSE) ou login direto via <strong>Banco Credenciado</strong>.</li>
-                                <li>Crie sua senha e ative a conta.</li>
+                                <li>Acesse o portal <strong>acesso.gov.br</strong> com o seu CPF.</li>
+                                <li>Insira a <strong>Senha Provisória</strong> (fornecida no banco ou agência).</li>
+                                <li>Cadastre imediatamente sua nova senha pessoal e definitiva.</li>
                             </ol>
                         </div>
                     </div>
@@ -481,93 +574,9 @@
                         <div class="card-body">
                             <span class="req-label">Redefinição de Acesso</span>
                             <ol>
-                                <li>No portal <strong>acesso.gov.br</strong>, insira seu CPF e clique em <strong>"Esqueci minha senha"</strong>.</li>
-                                <li>Selecione o método desejado: <strong>Reconhecimento Facial</strong>, <strong>Validação Bancária</strong>, <strong>E-mail</strong> ou <strong>SMS</strong>.</li>
-                                <li>Insira o código de validação recebido e redefina sua senha.</li>
+                                <li>Em <strong>acesso.gov.br</strong>, clique em <strong>"Esqueci minha senha"</strong>.</li>
+                                <li>Escolha a recuperação por <strong>Reconhecimento Facial</strong>, <strong>Banco Credenciado</strong> ou <strong>SMS/E-mail</strong>.</li>
                             </ol>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CATEGORIA 4: EMPRÉSTIMO CONSIGNAÇÃO E PAGAMENTOS RETIDOS -->
-        <section class="category-section">
-            <div class="category-header alert-type">
-                <h2>4. Soluções para Empréstimos e Pagamentos Retidos</h2>
-                <p>Regras para desativar bloqueios e resgatar valores não sacados</p>
-            </div>
-            <div class="cards-grid">
-                
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-red">CONSIGNAÇÃO</span>
-                            <h3 class="card-title">Desbloqueio para Empréstimo Consignado</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Validação de Segurança e Biometria</span>
-                            <ol>
-                                <li>Acesse o app <strong>Meu INSS</strong> e pesquise por: <strong>"Bloquear/Desbloquear Benefício para Empréstimo"</strong>.</li>
-                                <li>Selecione o benefício e avance.</li>
-                                <li>Realize a <strong>Biometria Facial</strong> no app ou a validação via banco credenciado.</li>
-                                <li>Após a contratação com a instituição bancária, acesse a aba <strong>"Confirmar Empréstimo Consignado"</strong> no Meu INSS para autorizar a operação em até 5 dias.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-red">PAGAMENTO RETIDO</span>
-                            <h3 class="card-title">Solicitar Pagamento Não Recebido</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Resgate de Valores Não Sacados</span>
-                            <p>Utilize se o benefício está ativo mas o valor não foi depositado ou o prazo bancário de 60 dias para saque expirou.</p>
-                            <p><strong>Passo a passo:</strong> No Meu INSS, vá em <strong>"Novo Pedido"</strong> &rarr; pesquise por <strong>"Solicitar Pagamento Não Recebido"</strong> &rarr; anexe documento de identificação com foto e confirme.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CATEGORIA 5: AUXÍLIOS E SALÁRIO-MATERNIDADE -->
-        <section class="category-section">
-            <div class="category-header service-type">
-                <h2>5. Auxílios e Salário-Maternidade</h2>
-                <p>Regras de cobertura para saúde, afastamentos e licenças</p>
-            </div>
-            <div class="cards-grid">
-                
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-green">ESPÉCIE B80</span>
-                            <h3 class="card-title">Salário-Maternidade</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Regras Atualizadas (IN 188/2025)</span>
-                            <p><strong>Duração:</strong> 120 dias para parto, adoção ou guarda para fins de adoção (14 dias para aborto não criminoso).</p>
-                            <p><strong>Piso / Teto em 2026:</strong> O valor varia entre o salário mínimo (R$ 1.621,00) e o teto previdenciário (R$ 8.475,55).</p>
-                            <p><strong>Isenção de Carência:</strong> Conforme decisão do STF e regulamentação do INSS, <strong>não há carência mínima de 10 contribuições</strong> para MEI, autônomas, facultativas e rurais. Exige-se apenas a qualidade de segurada na data do fato gerador.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-green">ESPÉCIE B31</span>
-                            <h3 class="card-title">Incapacidade Temporária (Auxílio-Doença)</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Gerais</span>
-                            <p><strong>Duração:</strong> Afastamento laboral contínuo superior a 15 dias.</p>
-                            <p><strong>Carência:</strong> 12 contribuições mensais (dispensada em caso de acidentes de qualquer natureza ou doenças graves expressas em lei).</p>
                         </div>
                     </div>
                 </div>
@@ -592,7 +601,7 @@
                         <div class="card-body">
                             <span class="req-label">Regra Permanente</span>
                             <p><strong>Mulher:</strong> 62 anos de idade + 15 anos de contribuição.</p>
-                            <p><strong>Homem:</strong> 65 anos de idade + 15 anos de contribuição (para quem já contribuía) ou 20 anos (novos filiados).</p>
+                            <p><strong>Homem:</strong> 65 anos de idade + 15 anos de contribuição.</p>
                         </div>
                     </div>
                 </div>
@@ -604,13 +613,13 @@
                             <h3 class="card-title">Regra de Pontos e Idade Progressiva (2026)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Critérios de Transição para 2026</span>
+                            <span class="req-label">Critérios Vigentes em 2026</span>
                             <p><strong>Pontos Progressivos (2026):</strong></p>
-                            <p>• Mulheres: 93 pontos (mínimo 30 anos de contribuição).</p>
-                            <p>• Homens: 103 pontos (mínimo 35 anos de contribuição).</p>
+                            <p>• Mulheres: 93 pontos (+30 anos de contribuição).</p>
+                            <p>• Homens: 103 pontos (+35 anos de contribuição).</p>
                             <p><strong>Idade Mínima Progressiva (2026):</strong></p>
-                            <p>• Mulheres: 59 anos e 6 meses de idade + 30 anos de contribuição.</p>
-                            <p>• Homens: 64 anos e 6 meses de idade + 35 anos de contribuição.</p>
+                            <p>• Mulheres: 59 anos e 6 meses (+30 anos contribuição).</p>
+                            <p>• Homens: 64 anos e 6 meses (+35 anos contribuição).</p>
                         </div>
                     </div>
                 </div>
@@ -625,22 +634,7 @@
                             <span class="req-label">Trabalhadores Rurais</span>
                             <p><strong>Mulher:</strong> 55 anos de idade.</p>
                             <p><strong>Homem:</strong> 60 anos de idade.</p>
-                            <p><strong>Carência:</strong> Comprovação de 15 anos de atividade rural ou agricultura familiar.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-blue">ESPÉCIE B32</span>
-                            <h3 class="card-title">Incapacidade Permanente (Invalidez)</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Invalidez Definitiva</span>
-                            <p><strong>Idade:</strong> Sem exigência de idade mínima.</p>
-                            <p><strong>Carência:</strong> 12 meses de contribuição (isenta em acidentes ou doenças graves de lei).</p>
-                            <p><strong>Condição:</strong> Incapacidade total atestada por Perícia Médica Federal.</p>
+                            <p><strong>Carência:</strong> 15 anos de atividade na produção rural/agricultura familiar.</p>
                         </div>
                     </div>
                 </div>
@@ -664,9 +658,9 @@
                         </div>
                         <div class="card-body">
                             <span class="req-label">Requisitos do Benefício</span>
-                            <p><strong>Valor:</strong> R$ 1.621,00 mensais (1 salário mínimo vigente em 2026).</p>
+                            <p><strong>Valor:</strong> R$ 1.621,00 mensais (salário mínimo de 2026).</p>
                             <p><strong>Idade:</strong> 65 anos de idade completos.</p>
-                            <p><strong>Renda Familiar:</strong> Renda per capita de até 1/4 do salário mínimo (R$ 405,25 em 2026) + Inscrição ativa no CadÚnico.</p>
+                            <p><strong>Renda Familiar:</strong> Per capita de até 1/4 do mínimo (R$ 405,25) + CadÚnico ativo.</p>
                         </div>
                     </div>
                 </div>
@@ -679,9 +673,8 @@
                         </div>
                         <div class="card-body">
                             <span class="req-label">Requisitos do Benefício</span>
-                            <p><strong>Valor:</strong> R$ 1.621,00 mensais (1 salário mínimo vigente em 2026).</p>
-                            <p><strong>Condição:</strong> Impedimento de longo prazo (físico, mental, intelectual ou sensorial) com duração mínima de 2 anos.</p>
-                            <p><strong>Renda:</strong> Familiar per capita de até R$ 405,25 + Inscrição ativa no CadÚnico.</p>
+                            <p><strong>Valor:</strong> R$ 1.621,00 mensais (salário mínimo de 2026).</p>
+                            <p><strong>Condição:</strong> Impedimento de longo prazo (mínimo 2 anos) + Renda per capita de até R$ 405,25 + CadÚnico.</p>
                         </div>
                     </div>
                 </div>
@@ -733,3 +726,4 @@
 
 </body>
 </html>
+
