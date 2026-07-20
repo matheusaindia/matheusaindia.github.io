@@ -1,11 +1,9 @@
-Aqui está o código completo (HTML5, CSS3 e JavaScript) contendo a estrutura anterior combinada com a listagem completa e detalhada de todos os serviços de benefícios do INSS (Aposentadorias, Benefícios por Incapacidade, Maternidade, Pensões, Assistenciais/BPC, Especiais e os Serviços do "Mais Serviços").
-O layout mantém o padrão responsivo, organização por categorias coloridas e o filtro de busca em tempo real.
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo Completo de Benefícios e Serviços do INSS</title>
+    <title>Catálogo Unificado e Exaustivo do Meu INSS</title>
     <style>
         :root {
             --primary: #0f172a;
@@ -41,7 +39,7 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -56,7 +54,7 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 2.1rem;
             font-weight: 800;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
@@ -65,7 +63,7 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         header p {
             color: #93c5fd;
             font-size: 1.05rem;
-            max-width: 850px;
+            max-width: 900px;
         }
 
         .tag-year {
@@ -96,8 +94,8 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
 
         .search-input {
             width: 100%;
-            padding: 16px 20px 16px 50px;
-            font-size: 1rem;
+            padding: 18px 20px 18px 50px;
+            font-size: 1.05rem;
             border: 2px solid var(--border-color);
             border-radius: 12px;
             background-color: #ffffff;
@@ -152,7 +150,8 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         .category-header.bpc-type { border-left-color: var(--accent-purple); }
         .category-header.especial-type { border-left-color: var(--accent-amber); }
         .category-header.servicos-type { border-left-color: var(--accent-indigo); }
-        .category-header.gps-type { border-left-color: var(--accent-teal); }
+        .category-header.cnis-type { border-left-color: var(--accent-cyan); }
+        .category-header.extratos-type { border-left-color: var(--accent-teal); }
 
         .category-header h2 {
             font-size: 1.35rem;
@@ -215,16 +214,17 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         .badge-indigo { background-color: #e0e7ff; color: #3730a3; }
         .badge-teal { background-color: #ccfbf1; color: #115e59; }
         .badge-rose { background-color: #ffe4e6; color: #9f1239; }
+        .badge-cyan { background-color: #cffafe; color: #155e75; }
 
         .card-title {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary);
             line-height: 1.3;
         }
 
         .card-body {
-            font-size: 0.925rem;
+            font-size: 0.9rem;
             color: #475569;
         }
 
@@ -244,7 +244,7 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
             margin-bottom: 6px;
         }
 
-        .card-body ul, .card-body ol {
+        .card-body ul {
             margin-left: 16px;
             margin-top: 4px;
         }
@@ -268,9 +268,9 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
     <div class="container">
         
         <header>
-            <h1>Portal Completo de Benefícios e Serviços do INSS</h1>
-            <p>Catálogo geral com todas as espécies de benefícios, aposentadorias, auxílios, pensões, LOAS/BPC e menu de serviços do Meu INSS.</p>
-            <span class="tag-year">Consulta e Referência de Serviços</span>
+            <h1>Catálogo Exaustivo de Serviços e Benefícios - Meu INSS</h1>
+            <p>Lista completa e sem exceções de todos os requerimentos, benefícios, consultas de CNIS, extratos, revisões, recursos, acertos cadastrais e agendamentos.</p>
+            <span class="tag-year">Portal do Meu INSS - Mapeamento Completo</span>
         </header>
 
         <!-- Barra de Pesquisa Interativa -->
@@ -279,19 +279,19 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                 <svg class="search-icon" viewBox="0 0 24 24">
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 11.99 14 9.5 14z"/>
                 </svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Pesquise por benefício ou código (ex: B31, B21, Atestmed, BPC, B41, Talidomida, Consignado...)" onkeyup="filterCards()">
+                <input type="text" id="searchInput" class="search-input" placeholder="Digite para buscar qualquer serviço (Ex: CNIS, Imposto de Renda, Atestmed, CTC, Pobreza Menstrual, Consignado, BPC, Prova de Vida...)" onkeyup="filterCards()">
             </div>
         </div>
 
         <div id="noResults" class="no-results">
-            🔍 Nenhum benefício ou serviço foi encontrado para o termo pesquisado.
+            🔍 Nenhum benefício ou serviço correspondente foi encontrado.
         </div>
 
-        <!-- SEÇÃO 1: BENEFÍCIOS POR INCAPACIDADE E SAÚDE -->
+        <!-- SEÇÃO 1: INCAPACIDADE E SAÚDE -->
         <section class="category-section">
             <div class="category-header incapacidade-type">
-                <h2>1. Benefícios por Incapacidade e Saúde</h2>
-                <p>Proteção financeira temporária ou permanente em razão de alterações na saúde do trabalhador</p>
+                <h2>1. Benefícios por Incapacidade, Saúde e Perícias</h2>
+                <p>Pedidos de auxílio-doença, perícias médicas, reabilitação profissional e adicionais</p>
             </div>
             <div class="cards-grid">
                 
@@ -299,12 +299,11 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ESPÉCIE B31</span>
-                            <h3 class="card-title">Incapacidade Temporária Previdenciária (Auxílio-Doença Comum)</h3>
+                            <h3 class="card-title">Benefício por Incapacidade Temporária (Auxílio-Doença Comum)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos e Regras</span>
-                            <p><strong>Afastamento:</strong> Superior a 15 dias consecutivos de trabalho.</p>
-                            <p><strong>Carência:</strong> 12 contribuições mensais (isento em caso de acidentes de qualquer natureza ou doenças graves especificadas em lei).</p>
+                            <span class="req-label">Incapacidade Temporária</span>
+                            <p>Afastamentos por doenças gerais ou acidentes comuns sem vínculo de trabalho. Exige 12 contribuições (salvo exceções).</p>
                         </div>
                     </div>
                 </div>
@@ -313,12 +312,11 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ESPÉCIE B91</span>
-                            <h3 class="card-title">Incapacidade Temporária Acidentária (Auxílio-Doença por Acidente de Trabalho)</h3>
+                            <h3 class="card-title">Benefício por Incapacidade Temporária Acidentária</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos e Regras</span>
-                            <p><strong>Natureza:</strong> Decorrente de acidente de trabalho, percurso ou doença ocupacional.</p>
-                            <p><strong>Vantagens:</strong> Isento de carência, obriga a empresa a manter o recolhimento do FGTS e concede 12 meses de estabilidade após a alta.</p>
+                            <span class="req-label">Acidente de Trabalho</span>
+                            <p>Para acidentes de trabalho, percurso ou doença ocupacional. Isento de carência, com estabilidade de 12 meses e FGTS.</p>
                         </div>
                     </div>
                 </div>
@@ -327,11 +325,24 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ATESTMED</span>
-                            <h3 class="card-title">Análise Documental sem Perícia (Atestmed)</h3>
+                            <h3 class="card-title">Pedir Benefício por Incapacidade Temporária (Análise Documental - Atestmed)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Serviço de Análise Rápida</span>
-                            <p><strong>Conceito:</strong> Envio de atestado ou laudo médico via Meu INSS para concessão do Auxílio por Incapacidade Temporária sem necessidade de perícia presencial.</p>
+                            <span class="req-label">Serviço Online</span>
+                            <p>Envio de laudo ou atestado médico sem necessidade de deslocamento ou perícia presencial para concessão rápida.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">PERÍCIA PRESENCIAL</span>
+                            <h3 class="card-title">Agendar Perícia Médica (Inicial, Prorrogação e Reagendamento)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Atendimento Presencial</span>
+                            <p>Marcação para avaliação física, pedido de prorrogação do benefício atual ou remarcação por não comparecimento.</p>
                         </div>
                     </div>
                 </div>
@@ -340,12 +351,24 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ESPÉCIE B32 / B92</span>
-                            <h3 class="card-title">Incapacidade Permanente (Aposentadoria por Invalidez)</h3>
+                            <h3 class="card-title">Aposentadoria por Incapacidade Permanente (Invalidez)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">B32 (Comum) e B92 (Acidentária)</span>
-                            <p><strong>Requisito:</strong> Incapacidade total e permanente para o trabalho, sem possibilidade de reabilitação profissional.</p>
-                            <p><strong>Adicional de 25%:</strong> Pago ao segurado que necessita da assistência permanente de outra pessoa para atividades diárias.</p>
+                            <span class="req-label">Incapacidade Total</span>
+                            <p>Concedida após avaliação pericial constatando incapacidade definitiva e sem reabilitação profissional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">ADICIONAL DE 25%</span>
+                            <h3 class="card-title">Solicitar Adicional de 25% na Aposentadoria por Invalidez</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Acompanhante Permanente</span>
+                            <p>Aumento da renda para o aposentado por invalidez que comprove necessidade de assistência diária contínua.</p>
                         </div>
                     </div>
                 </div>
@@ -357,9 +380,21 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                             <h3 class="card-title">Auxílio-Acidente</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Caráter Indenizatório</span>
-                            <p><strong>Requisito:</strong> Concedido ao segurado que consolida lesões de acidente de qualquer natureza que resultem em sequelas permanentes e redução da capacidade de trabalho.</p>
-                            <p><strong>Acúmulo:</strong> Pode ser recebido juntamente com o salário normal de trabalho registrado.</p>
+                            <span class="req-label">Indenização por Sequela</span>
+                            <p>Benefício indenizatório em virtude de sequela permanente que reduz a capacidade de trabalho (não impede de trabalhar).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-green">REABILITAÇÃO</span>
+                            <h3 class="card-title">Solicitar Reabilitação Profissional</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Readaptação no Mercado</span>
+                            <p>Serviço multiprofissional para readequar o segurado incapaz a uma nova função ou atividade compatível.</p>
                         </div>
                     </div>
                 </div>
@@ -370,8 +405,8 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         <!-- SEÇÃO 2: APOSENTADORIAS -->
         <section class="category-section">
             <div class="category-header aposentadoria-type">
-                <h2>2. Aposentadorias (Regras Gerais, Transição e Especiais)</h2>
-                <p>Modalidades de aposentadoria urbana, rural, por pontos e para condições específicas</p>
+                <h2>2. Todas as Modalidades de Aposentadoria</h2>
+                <p>Regras gerais, transições, atividades rurais, especiais e aposentadoria PCD</p>
             </div>
             <div class="cards-grid">
                 
@@ -382,9 +417,8 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                             <h3 class="card-title">Aposentadoria por Idade Urbana</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos Gerais</span>
-                            <p><strong>Mulheres:</strong> 62 anos de idade + 15 anos de contribuição.</p>
-                            <p><strong>Homens:</strong> 65 anos de idade + 15 anos de contribuição.</p>
+                            <span class="req-label">Regra Geral</span>
+                            <p>Mulheres aos 62 anos / Homens aos 65 anos, com carência mínima de 15 anos de contribuição.</p>
                         </div>
                     </div>
                 </div>
@@ -396,10 +430,8 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                             <h3 class="card-title">Aposentadoria por Idade Rural</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Trabalhadores Rurais e Segurados Especiais</span>
-                            <p><strong>Mulheres:</strong> 55 anos de idade.</p>
-                            <p><strong>Homens:</strong> 60 anos de idade.</p>
-                            <p><strong>Requisito:</strong> Comprovação de 15 anos de trabalho e atividade na produção rural/agricultura familiar.</p>
+                            <span class="req-label">Segurado Especial</span>
+                            <p>Mulheres aos 55 anos / Homens aos 60 anos, com comprovação de 15 anos de atividade no campo.</p>
                         </div>
                     </div>
                 </div>
@@ -407,17 +439,12 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-blue">ESPÉCIE B42</span>
-                            <h3 class="card-title">Aposentadoria por Tempo de Contribuição (Regras de Transição)</h3>
+                            <span class="badge badge-blue">REGRAS DE TRANSIÇÃO</span>
+                            <h3 class="card-title">Aposentadoria por Tempo de Contribuição (B42)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Modalidades de Transição</span>
-                            <ul>
-                                <li><strong>Regra de Pontos:</strong> Soma de idade + tempo de contribuição.</li>
-                                <li><strong>Idade Progressiva:</strong> Aumento gradual da idade mínima exigida.</li>
-                                <li><strong>Pedágio de 50%:</strong> Para quem estava a até 2 anos de se aposentar no momento da Reforma.</li>
-                                <li><strong>Pedágio de 100%:</strong> Exige idade mínima e o dobro do tempo restante na data da Reforma.</li>
-                            </ul>
+                            <span class="req-label">Regras do Art. 15 ao 21</span>
+                            <p>Requerimento pelas regras de Pontos, Idade Progressiva, Pedágio de 50% e Pedágio de 100%.</p>
                         </div>
                     </div>
                 </div>
@@ -429,8 +456,8 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                             <h3 class="card-title">Aposentadoria Especial</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Exposição a Agentes Nocivos</span>
-                            <p><strong>Requisito:</strong> Comprovação de 15, 20 ou 25 anos de trabalho sob exposição contínua a agentes físicos, químicos ou biológicos prejudiciais à saúde (comprovação via PPP).</p>
+                            <span class="req-label">Insalubridade / Periculosidade</span>
+                            <p>Para trabalhadores expostos a agentes nocivos (15, 20 ou 25 anos) comprovados mediante Perfil Profissiográfico Previdenciário (PPP).</p>
                         </div>
                     </div>
                 </div>
@@ -439,12 +466,37 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-blue">ESPÉCIE B85 / B86</span>
-                            <h3 class="card-title">Aposentadoria da Pessoa com Deficiência</h3>
+                            <h3 class="card-title">Aposentadoria da Pessoa com Deficiência (Por Idade e Tempo)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Por Idade ou Tempo de Contribuição</span>
-                            <p>• <strong>B85 (Tempo de Contribuição):</strong> Redução do tempo necessário conforme o grau da deficiência (leve, média ou grave).</p>
-                            <p>• <strong>B86 (Por Idade):</strong> 55 anos (mulheres) e 60 anos (homens), independente do grau, com pelo menos 15 anos de contribuição na condição.</p>
+                            <span class="req-label">Lei Complementar 142</span>
+                            <p>Redução nos requisitos de idade ou tempo de contribuição após perícia médica e avaliação social.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-blue">APOSENTADORIA HÍBRIDA</span>
+                            <h3 class="card-title">Aposentadoria por Idade Híbrida</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Rural + Urbano</span>
+                            <p>Permite somar o tempo de trabalho rural não pago com o período urbano para atingir a carência.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-blue">SIMULADOR</span>
+                            <h3 class="card-title">Simular Aposentadoria</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Ferramenta Automática</span>
+                            <p>Calcula em tempo real a idade, tempo de contribuição e quanto falta para atingir cada regra de aposentadoria.</p>
                         </div>
                     </div>
                 </div>
@@ -456,7 +508,7 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         <section class="category-section">
             <div class="category-header maternidade-type">
                 <h2>3. Proteção à Maternidade e Família</h2>
-                <p>Benefícios de amparo aos eventos de nascimento, adoção e dependentes</p>
+                <p>Salário-maternidade, salário-família e programas sociais</p>
             </div>
             <div class="cards-grid">
                 
@@ -464,12 +516,24 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-rose">ESPÉCIE B80</span>
-                            <h3 class="card-title">Salário-Maternidade</h3>
+                            <h3 class="card-title">Salário-Maternidade Urbano</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Licença Maternidade/Adoção</span>
-                            <p><strong>Duração:</strong> 120 dias para parto, adoção ou guarda judicial para fins de adoção (ou 14 dias em caso de aborto não criminoso).</p>
-                            <p><strong>Público:</strong> Trabalhadoras de carteira assinada, MEI, autônomas, facultativas e seguradas especiais rurais.</p>
+                            <span class="req-label">Parto, Adoção e Aborto Legal</span>
+                            <p>Pago durante 120 dias a trabalhadoras avulsas, empregadas domésticas, desempregadas ou autônomas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-rose">ESPÉCIE B80 (RURAL)</span>
+                            <h3 class="card-title">Salário-Maternidade Rural</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Segurada Especial</span>
+                            <p>Destinado a trabalhadoras rurais que comprovam exercício de atividade no campo nos 10 meses anteriores ao parto/adoção.</p>
                         </div>
                     </div>
                 </div>
@@ -481,9 +545,21 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                             <h3 class="card-title">Salário-Família</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Complemento de Renda Baixa Renda</span>
-                            <p><strong>Público:</strong> Trabalhadores de baixa renda com filhos de até 14 anos ou com deficiência de qualquer idade.</p>
-                            <p><strong>Pagamento:</strong> Cota fixada por filho, paga diretamente pela empresa ou pelo INSS junto ao benefício.</p>
+                            <span class="req-label">Cota por Filho</span>
+                            <p>Complemento financeiro de renda para dependentes de até 14 anos ou com deficiência de trabalhadores de baixa renda.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-rose">DIGNIDADE MENSTRUAL</span>
+                            <h3 class="card-title">Programa Dignidade Menstrual (Pobreza Menstrual)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Emissão de Autorização</span>
+                            <p>Emissão da autorização para retirada gratuita de absorventes nas Farmácias Populares credenciadas.</p>
                         </div>
                     </div>
                 </div>
@@ -494,21 +570,46 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         <!-- SEÇÃO 4: PENSÕES E DEPENDENTES -->
         <section class="category-section">
             <div class="category-header pensao-type">
-                <h2>4. Pensões e Benefícios para Dependentes</h2>
-                <p>Amparo financeiro aos dependentes legais em caso de falecimento ou prisão do segurado</p>
+                <h2>4. Pensões por Morte e Auxílio-Reclusão</h2>
+                <p>Benefícios ao cônjuge, filhos e dependentes econômicos</p>
             </div>
             <div class="cards-grid">
                 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-red">ESPÉCIE B21 / B22 / B93</span>
-                            <h3 class="card-title">Pensão por Morte (Urbana, Rural e Acidentária)</h3>
+                            <span class="badge badge-red">ESPÉCIE B21</span>
+                            <h3 class="card-title">Pensão por Morte Urbana</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Cota Familiar e Duração</span>
-                            <p><strong>Cálculo:</strong> Cota familiar de 50% + 10% por dependente (até o máximo de 100%).</p>
-                            <p><strong>Cônjuges/Companheiros:</strong> A duração varia conforme a idade do sobrevivente na data do óbito (pode ser temporária ou vitalícia para maiores de 45 anos).</p>
+                            <span class="req-label">Falecimento de Segurado</span>
+                            <p>Devida aos dependentes (cônjuge, companheiro, filhos menores/inválidos ou pais comprovados).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-red">ESPÉCIE B22</span>
+                            <h3 class="card-title">Pensão por Morte Rural</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Trabalhador do Campo</span>
+                            <p>Pensão concedida aos dependentes de trabalhadores rurais, agricultores familiares ou pescadores artesanais.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-red">ESPÉCIE B93</span>
+                            <h3 class="card-title">Pensão por Morte por Acidente de Trabalho</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Causa Ocupacional</span>
+                            <p>Pensão paga quando o óbito do segurado é decorrente de acidente de trabalho ou doença do trabalho.</p>
                         </div>
                     </div>
                 </div>
@@ -517,12 +618,11 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-red">ESPÉCIE B25</span>
-                            <h3 class="card-title">Auxílio-Reclusão</h3>
+                            <h3 class="card-title">Auxílio-Reclusão Urbano e Rural</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Dependentes de Segurado Preso</span>
-                            <p><strong>Requisitos:</strong> Pago aos dependentes do segurado recolhido à prisão em <strong>regime fechado</strong>.</p>
-                            <p><strong>Regra:</strong> Exige que o último salário de contribuição do preso esteja dentro do limite de baixa renda fixado em lei e carência de 24 meses.</p>
+                            <span class="req-label">Regime Fechado</span>
+                            <p>Pago aos dependentes do segurado de baixa renda retido em regime fechado. Exige carência de 24 meses.</p>
                         </div>
                     </div>
                 </div>
@@ -530,11 +630,11 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
             </div>
         </section>
 
-        <!-- SEÇÃO 5: BENEFÍCIOS ASSISTENCIAIS (LOAS / BPC) -->
+        <!-- SEÇÃO 5: BENEFÍCIOS ASSISTENCIAIS (LOAS/BPC) E ESPECIAIS -->
         <section class="category-section">
             <div class="category-header bpc-type">
-                <h2>5. Benefícios Assistenciais (LOAS / BPC)</h2>
-                <p>Pagamento de amparo social sem necessidade de contribuição previdenciária prévia</p>
+                <h2>5. Benefícios Assistenciais (LOAS/BPC) e Pensões Especiais</h2>
+                <p>Transferência de renda assistencial e reparações históricas sem necessidade de contribuição</p>
             </div>
             <div class="cards-grid">
                 
@@ -542,12 +642,11 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-purple">ESPÉCIE B88</span>
-                            <h3 class="card-title">BPC - Benefício de Prestação Continuada (Idoso)</h3>
+                            <h3 class="card-title">BPC - Benefício de Prestação Continuada ao Idoso</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Lei Orgânica da Assistência Social</span>
-                            <p><strong>Valor:</strong> 1 Salário Mínimo mensal.</p>
-                            <p><strong>Critérios:</strong> Ter 65 anos de idade ou mais + Renda familiar por pessoa de até 1/4 do salário mínimo + Inscrição e atualização ativa no CadÚnico.</p>
+                            <span class="req-label">Idoso 65+</span>
+                            <p>Para pessoas idosas com 65 anos ou mais, renda familiar por pessoa até 1/4 do salário mínimo e CadÚnico.</p>
                         </div>
                     </div>
                 </div>
@@ -556,27 +655,28 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-purple">ESPÉCIE B87</span>
-                            <h3 class="card-title">BPC - Benefício de Prestação Continuada (PCD)</h3>
+                            <h3 class="card-title">BPC - Benefício de Prestação Continuada à Pessoa com Deficiência</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Pessoa com Deficiência</span>
-                            <p><strong>Valor:</strong> 1 Salário Mínimo mensal.</p>
-                            <p><strong>Critérios:</strong> Pessoas com deficiência de qualquer idade com impedimento de longo prazo (mínimo de 2 anos) + Renda familiar per capita de até 1/4 do salário mínimo + CadÚnico.</p>
+                            <span class="req-label">PCD Baixa Renda</span>
+                            <p>Pago a pessoas com deficiência de qualquer idade, com limitação de longo prazo, renda de baixa renda e CadÚnico.</p>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </section>
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-purple">BPC RURAL</span>
+                            <h3 class="card-title">BPC / LOAS do Trabalhador Rural</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Solicitação Rural</span>
+                            <p>Requerimento do BPC/LOAS voltado a residentes de áreas rurais que atendam aos requisitos sociais.</p>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- SEÇÃO 6: LEGISLAÇÕES E PENSÕES ESPECIAIS -->
-        <section class="category-section">
-            <div class="category-header especial-type">
-                <h2>6. Pensões e Legislações Especiais</h2>
-                <p>Benefícios indenizatórios e especiais concedidos pelo Estado Brasileiro</p>
-            </div>
-            <div class="cards-grid">
-                
                 <div class="card">
                     <div>
                         <div class="card-header">
@@ -584,8 +684,8 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                             <h3 class="card-title">Pensão Especial Síndrome da Talidomida</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Indenização Histórica</span>
-                            <p><strong>Público:</strong> Destinada a pessoas acometidas pela deformidade física decorrente do uso da droga Talidomida por suas mães durante a gestação.</p>
+                            <span class="req-label">Lei 7.070/82</span>
+                            <p>Pensão indenizatória mensal para pessoas com deformidades decorrentes do uso da Talidomida.</p>
                         </div>
                     </div>
                 </div>
@@ -597,8 +697,8 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                             <h3 class="card-title">Pensão Especial Hanseníase</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Isolamento Compulsorio</span>
-                            <p><strong>Público:</strong> Concedida às pessoas atingidas pela hanseníase que foram submetidas a isolamento e internação compulsórios em hospitais-colônia até 1986.</p>
+                            <span class="req-label">Lei 11.520/07</span>
+                            <p>Indenização mensal a pessoas atingidas pela hanseníase submetidas a isolamento/internação compulsória.</p>
                         </div>
                     </div>
                 </div>
@@ -607,11 +707,24 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                     <div>
                         <div class="card-header">
                             <span class="badge badge-amber">PENSÃO ZIKA</span>
-                            <h3 class="card-title">Pensão Especial Crianças com Microcefalia (Zika Vírus)</h3>
+                            <h3 class="card-title">Pensão Especial Microcefalia (Zika Vírus)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Amparo Vitalício</span>
-                            <p><strong>Público:</strong> Destinada a crianças com Síndrome Congênita do Zika Vírus nascidas entre 1º de janeiro de 2015 e 31 de dezembro de 2019, beneficiárias do BPC.</p>
+                            <span class="req-label">Lei 13.985/20</span>
+                            <p>Pensão mensal e vitalícia destinada a crianças com Síndrome Congênita do Zika Vírus beneficiárias do BPC.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">SERINGUEIROS</span>
+                            <h3 class="card-title">Pensão Vitalícia do Seringueiro (Soldados da Borracha)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Espécie B58 / B59</span>
+                            <p>Amparo a seringueiros que trabalharam durante a Segunda Guerra Mundial e seus dependentes.</p>
                         </div>
                     </div>
                 </div>
@@ -619,27 +732,188 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
             </div>
         </section>
 
-        <!-- SEÇÃO 7: SERVIÇOS OPERACIONAIS E DA ABA "MAIS SERVIÇOS" -->
+        <!-- SEÇÃO 6: CNIS, ATUALIZAÇÕES E ACERTOS DE VÍNCULO -->
+        <section class="category-section">
+            <div class="category-header cnis-type">
+                <h2>6. Cadastro (CNIS), Atualizações e Acerto de Dados</h2>
+                <p>Ajustes de vínculos, inserção de empresas, períodos rurais, militares e dados pessoais</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-cyan">CNIS</span>
+                            <h3 class="card-title">Consultar / Baixar Extrato de Contribuição (CNIS)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Histórico Escolar Previdenciário</span>
+                            <p>Emissão do relatório completo com todas as empresas, salários de contribuição e vínculos registrados.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-cyan">ACERTO DE CNIS</span>
+                            <h3 class="card-title">Atualizar Vínculos e Relações Previdenciárias</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Inclusão / Alteração</span>
+                            <p>Pedido de inclusão de empresas que faltam no CNIS, alteração de datas de entrada e saída, ou correção de remunerações.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-cyan">DADOS PERSONAIS</span>
+                            <h3 class="card-title">Atualizar Dados Cadastrais e de Contato</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Informações Cadastrais</span>
+                            <p>Atualização de endereço, telefone, e-mail, nome de casado(a) e correção de documentos (CPF/RG/RG) no sistema.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-cyan">TEMPO RURAL / MILITAR</span>
+                            <h3 class="card-title">Atualizar Cadastro de Atividade Rural e Período Militar</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Aproveitamento de Tempo</span>
+                            <p>Inclusão formal no CNIS do tempo de serviço militar obrigatório ou períodos de trabalho em economia familiar no campo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-cyan">ACERTO DE CARNÊ</span>
+                            <h3 class="card-title">Atualizar Guias / Carnês de Contribuição (GPS)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Autônomos / Facultativos</span>
+                            <p>Corrigir código de pagamento errado na guia de recolhimento, ajustar mês trabalhado ou vincular pagamento ao NIT.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 7: EXTRATOS, COMPROVANTES E DECLARAÇÕES -->
+        <section class="category-section">
+            <div class="category-header extratos-type">
+                <h2>7. Extratos, Comprovantes, Certidões e Declarações</h2>
+                <p>Relatórios para bancos, IR, contabilidade, órgãos públicos e regimes próprios</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">PAGAMENTO</span>
+                            <h3 class="card-title">Extrato de Pagamento do Benefício (HISMED/HISPAG)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Comprovante de Renda</span>
+                            <p>Demonstrativo detalhado dos valores brutos, descontos, banco pagador e valor líquido recebido no mês.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">IMPOSTO DE RENDA</span>
+                            <h3 class="card-title">Extrato do Imposto de Renda (Informe de Rendimentos)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Declaração Anual IR</span>
+                            <p>Documento fiscal anual utilizado para preencher a declaração de Imposto de Renda de Pessoa Física (IRPF).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">NADA CONSTA</span>
+                            <h3 class="card-title">Declaração de Benefício do INSS (Consta/Nada Consta)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Certificação Oficial</span>
+                            <p>Documento que comprova formalmente se o cidadão possui ou não benefício ativo em seu CPF.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">CTC / DTC</span>
+                            <h3 class="card-title">Solicitar e Emitir Certidão de Tempo de Contribuição (CTC)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Servidores Concursados (RPPS)</span>
+                            <p>Certidão para levar o tempo de contribuição do regime geral (INSS) para o regime próprio do serviço público.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">CONSIGNADOS</span>
+                            <h3 class="card-title">Extrato de Empréstimo Consignado</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Margem e Contratos</span>
+                            <p>Relatório de todos os contratos de empréstimos e cartões de crédito ativos descontados no benefício.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">CARTA DE CONCESSÃO</span>
+                            <h3 class="card-title">Carta de Concessão e Memória de Cálculo</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Comprovante de Origem</span>
+                            <p>Documento com a fórmula de cálculo da Renda Mensal Inicial (RMI) e decisão de aprovação do benefício.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 8: GESTÃO DO PAGAMENTO, CONSIGNADO E REPRESENTAÇÃO -->
         <section class="category-section">
             <div class="category-header servicos-type">
-                <h2>7. Serviços de Gestão e Aba "Mais Serviços" (Meu INSS)</h2>
-                <p>Solicitações de certidões, bloqueios, alterações de conta, revisões e recursos</p>
+                <h2>8. Gestão de Pagamento, Consignados, Procuração e Pagamentos Pendentes</h2>
+                <p>Troca de conta bancária, bloqueios de segurança, liberação de crédito e representantes</p>
             </div>
             <div class="cards-grid">
                 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-indigo">PROCURAÇÃO E PROVA DE VIDA</span>
-                            <h3 class="card-title">Representação Legal e Validação Cadastral</h3>
+                            <span class="badge badge-indigo">CONSIGNAÇÕES</span>
+                            <h3 class="card-title">Bloquear / Desbloquear Benefício para Empréstimo Consignado</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Menu de Serviços</span>
-                            <ul>
-                                <li><strong>Consulta de Prova de Vida:</strong> Verificação do status biométrico.</li>
-                                <li><strong>Cadastrar/Renovar Procuração:</strong> Inclusão de procurador para representação.</li>
-                                <li><strong>Cadastrar Representante Legal:</strong> Para tutores, curadores ou administradores.</li>
-                            </ul>
+                            <span class="req-label">Segurança Financeira</span>
+                            <p>Ativação ou trava de autorização para contratação de empréstimo consignado no benefício.</p>
                         </div>
                     </div>
                 </div>
@@ -647,16 +921,12 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-indigo">CONSIGNADOS</span>
-                            <h3 class="card-title">Bloqueios, Margem e Consignados</h3>
+                            <span class="badge badge-indigo">ALTERAR BANCO</span>
+                            <h3 class="card-title">Alterar Forma ou Local de Pagamento (Mudança de Banco)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Menu de Serviços</span>
-                            <ul>
-                                <li><strong>Bloqueio/Desbloqueio de Benefício:</strong> Trava ou liberação para empréstimo consignado.</li>
-                                <li><strong>Extrato de Empréstimos:</strong> Histórico de margem e contratos vigentes.</li>
-                                <li><strong>Exclusão de Desconto de Mensalidade:</strong> Cancelamento de mensalidades de associações.</li>
-                            </ul>
+                            <span class="req-label">Troca de Conta/Agência</span>
+                            <p>Transferência do pagamento do benefício para outra agência bancária ou para conta corrente/poupança.</p>
                         </div>
                     </div>
                 </div>
@@ -664,16 +934,12 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-indigo">CERTIDÕES</span>
-                            <h3 class="card-title">CTC, DTC e Declarações</h3>
+                            <span class="badge badge-indigo">PAGAMENTO NÃO RECEBIDO</span>
+                            <h3 class="card-title">Solicitar Pagamento não Recebido (Reemissão de Valor)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Menu de Serviços</span>
-                            <ul>
-                                <li><strong>Solicitar CTC:</strong> Certidão de Tempo de Contribuição para o regime próprio (RPPS).</li>
-                                <li><strong>Solicitar DTC:</strong> Declaração de Tempo de Contribuição.</li>
-                                <li><strong>Declaração de Nada Consta:</strong> Comprovante de ausência de benefícios ativos.</li>
-                            </ul>
+                            <span class="req-label">Atraso ou Devolução</span>
+                            <p>Pedido para sacar mensalidades pendentes, expiradas no banco ou não creditadas na data correta.</p>
                         </div>
                     </div>
                 </div>
@@ -681,15 +947,38 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-indigo">RECURSOS & REVISÕES</span>
-                            <h3 class="card-title">Recursos e Pedidos de Revisão</h3>
+                            <span class="badge badge-indigo">MENSALIDADE ASSOCIATIVA</span>
+                            <h3 class="card-title">Exclusão e Bloqueio de Mensalidade Associativa</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Menu de Serviços</span>
-                            <ul>
-                                <li><strong>Entrar com Recurso (CRPS):</strong> Apelação em 1ª e 2ª instâncias contra indeferimentos.</li>
-                                <li><strong>Solicitar Revisão de Benefício:</strong> Reanálise de cálculo, salários ou vínculos.</li>
-                            </ul>
+                            <span class="req-label">Descontos não Autorizados</span>
+                            <p>Cancelamento e bloqueio de descontos mensais de sindicatos ou associações no contracheque do INSS.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">PROCURAÇÃO</span>
+                            <h3 class="card-title">Cadastrar / Renovar Procurador ou Representante Legal</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Atendimento por Terceiros</span>
+                            <p>Inclusão ou renovação de procurador, tutor, curador ou administrador para responder em nome do titular.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">PROVA DE VIDA</span>
+                            <h3 class="card-title">Consultar Status de Prova de Vida</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Validação Anual</span>
+                            <p>Conferência da data do último batimento de dados e validação do status de manutenção do pagamento.</p>
                         </div>
                     </div>
                 </div>
@@ -697,24 +986,23 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
             </div>
         </section>
 
-        <!-- SEÇÃO 8: CÓDIGOS DE CONTRIBUIÇÃO GPS -->
+        <!-- SEÇÃO 9: RECURSOS, REVISÕES, CÓPIAS E SERVIÇOS DO SERVIDOR (RPPS) -->
         <section class="category-section">
-            <div class="category-header gps-type">
-                <h2>8. Códigos de Contribuição de Autônomos e Facultativos</h2>
-                <p>Principais códigos para emissão de guias de pagamento GPS</p>
+            <div class="category-header servicos-type">
+                <h2>9. Processos, Recursos, Revisões, Cópia de Processo e RPPS</h2>
+                <p>Defesas perante a Junta de Recursos, reanálises de valores, laudos periciais e servidores federais</p>
             </div>
             <div class="cards-grid">
                 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-teal">CÓDIGO 1007</span>
-                            <h3 class="card-title">Contribuinte Individual (Plano Normal 20%)</h3>
+                            <span class="badge badge-indigo">RECURSO CRPS</span>
+                            <h3 class="card-title">Cadastrar Recurso Ordinário ou Especial (1ª e 2ª Instâncias)</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Autônomos / Profissionais Liberais</span>
-                            <p><strong>Alíquota:</strong> 20% sobre o valor declarado (entre o salário mínimo e o teto).</p>
-                            <p><strong>Direito:</strong> Todos os benefícios, inclusive aposentadoria por tempo de contribuição.</p>
+                            <span class="req-label">Contestação de Negativa</span>
+                            <p>Contestação jurídica administrativa enviada ao Conselho de Recursos da Previdência Social contra benefícios negados.</p>
                         </div>
                     </div>
                 </div>
@@ -722,13 +1010,12 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-teal">CÓDIGO 1163</span>
-                            <h3 class="card-title">Contribuinte Individual (Plano Simplificado 11%)</h3>
+                            <span class="badge badge-indigo">REVISÃO</span>
+                            <h3 class="card-title">Solicitar Revisão do Benefício</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Autônomos que atendem Pessoas Físicas</span>
-                            <p><strong>Alíquota:</strong> 11% calculado sobre o salário mínimo.</p>
-                            <p><strong>Direito:</strong> Aposentadoria por Idade e demais auxílios por incapacidade e maternidade.</p>
+                            <span class="req-label">Correção de Cálculo/Vínculo</span>
+                            <p>Pedido de reanálise de valor de benefício ativo quando ignorado algum salário de contribuição ou tempo especial.</p>
                         </div>
                     </div>
                 </div>
@@ -736,14 +1023,51 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-teal">CÓDIGO 1406 / 1473 / 1929</span>
-                            <h3 class="card-title">Segurado Facultativo (Sem Renda Própria)</h3>
+                            <span class="badge badge-indigo">CÓPIA DE PROCESSO</span>
+                            <h3 class="card-title">Solicitar Cópia de Processo Administrativo / Laudo Pericial</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Estudantes, Donas de Casa e Desempregados</span>
-                            <p>• <strong>Código 1406:</strong> Plano Normal (20%).</p>
-                            <p>• <strong>Código 1473:</strong> Plano Simplificado (11%).</p>
-                            <p>• <strong>Código 1929:</strong> Baixa Renda (5% com CadÚnico).</p>
+                            <span class="req-label">Acesso à Documentação</span>
+                            <p>Download integral das pastas do processo indeferido ou deferido e emissão dos laudos periciais e sociais.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">CUMPRIMENTO DE EXIGÊNCIA</span>
+                            <h3 class="card-title">Cumprir Exigência de Requerimento</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Envio de Documentos Faltantes</span>
+                            <p>Anexo de fotos/documentos extras solicitados pelo servidor analista para concluir a análise do processo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">SERVIDORES (RPPS)</span>
+                            <h3 class="card-title">Serviços e Benefícios para Servidores Públicos Federais</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Órgãos do Poder Executivo</span>
+                            <p>Aposentadoria de servidor federal, pensão por morte de servidor, auxílio-funeral e averbação de tempo de serviço.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">ACORDO INTERNACIONAL</span>
+                            <h3 class="card-title">Pedidos sob Acordos Internacionais de Previdência</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Trabalho no Exterior</span>
+                            <p>Solicitação de aposentadoria e pensão utilizando tempos de contribuição prestados em países conveniados com o Brasil.</p>
                         </div>
                     </div>
                 </div>
@@ -752,7 +1076,7 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
         </section>
 
         <footer>
-            <p>Catálogo Integrado de Serviços e Benefícios do INSS</p>
+            <p>Portal Unificado de Referência Completa do Meu INSS - Todos os Direitos Reservados</p>
         </footer>
 
     </div>
@@ -795,4 +1119,3 @@ O layout mantém o padrão responsivo, organização por categorias coloridas e 
 
 </body>
 </html>
-
