@@ -1,5 +1,3 @@
-Aqui está o código HTML completo e atualizado. Foi integrada a biblioteca html2pdf.js via CDN e adicionado um botão "📥 Baixar PDF" exclusivo para cada um dos tópicos da Seção 10 (Conta gov.br e Senha Provisória).
-Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o download instantâneo de um documento PDF formatado com o título, crachá/badge e a descrição completa do serviço.
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -319,7 +317,7 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
             </div>
             <div class="cards-grid">
                 
-                <div class="card">
+                <div class="card" id="card-b31">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ESPÉCIE B31</span>
@@ -330,9 +328,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Afastamentos por doenças gerais ou acidentes comuns sem vínculo de trabalho. Exige 12 contribuições (salvo exceções).</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-b31', 'Auxilio_Doenca_Comum_B31.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-b91">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ESPÉCIE B91</span>
@@ -343,9 +344,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Para acidentes de trabalho, percurso ou doença ocupacional. Isento de carência, com estabilidade de 12 meses e FGTS.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-b91', 'Auxilio_Doenca_Acidentario_B91.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-atestmed">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ATESTMED</span>
@@ -356,9 +360,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Envio de laudo ou atestado médico sem necessidade de deslocamento ou perícia presencial para concessão rápida.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-atestmed', 'Atestmed_Análise_Documental.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-agendar-pericia">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">PERÍCIA PRESENCIAL</span>
@@ -369,9 +376,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Marcação para avaliação física, pedido de prorrogação do benefício atual ou remarcação por não comparecimento.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-agendar-pericia', 'Agendar_Pericia_Medica.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-invalidez">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ESPÉCIE B32 / B92</span>
@@ -382,9 +392,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Concedida após avaliação pericial constatando incapacidade definitiva e sem reabilitação profissional.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-invalidez', 'Aposentadoria_Incapacidade_Permanente.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-adicional-25">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ADICIONAL DE 25%</span>
@@ -395,9 +408,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Aumento da renda para o aposentado por invalidez que comprove necessidade de assistência diária contínua.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-adicional-25', 'Adicional_25_Por_Cento.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-auxilio-acidente">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">ESPÉCIE B36</span>
@@ -408,9 +424,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Benefício indenizatório em virtude de sequela permanente que reduz a capacidade de trabalho (não impede de trabalhar).</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-auxilio-acidente', 'Auxilio_Acidente.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-reabilitacao">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-green">REABILITAÇÃO</span>
@@ -421,6 +440,9 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Serviço multiprofissional para readequar o segurado incapaz a uma nova função ou atividade compatível.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-reabilitacao', 'Reabilitacao_Profissional.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
             </div>
@@ -434,7 +456,7 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
             </div>
             <div class="cards-grid">
                 
-                <div class="card">
+                <div class="card" id="card-b41">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-blue">ESPÉCIE B41</span>
@@ -445,9 +467,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Mulheres aos 62 anos / Homens aos 65 anos, com carência mínima de 15 anos de contribuição.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-b41', 'Aposentadoria_Idade_Urbana.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-b08">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-blue">ESPÉCIE B08</span>
@@ -458,9 +483,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Mulheres aos 55 anos / Homens aos 60 anos, com comprovação de 15 anos de atividade no campo.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-b08', 'Aposentadoria_Idade_Rural.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-b42">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-blue">REGRAS DE TRANSIÇÃO</span>
@@ -471,9 +499,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Requerimento pelas regras de Pontos, Idade Progressiva, Pedágio de 50% e Pedágio de 100%.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-b42', 'Aposentadoria_Tempo_Contribuicao.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-b46">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-blue">ESPÉCIE B46</span>
@@ -484,9 +515,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Para trabalhadores expostos a agentes nocivos (15, 20 ou 25 anos) comprovados mediante Perfil Profissiográfico Previdenciário (PPP).</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-b46', 'Aposentadoria_Especial.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-pcd">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-blue">ESPÉCIE B85 / B86</span>
@@ -497,9 +531,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Redução nos requisitos de idade ou tempo de contribuição após perícia médica e avaliação social.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-pcd', 'Aposentadoria_PCD.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-hibrida">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-blue">APOSENTADORIA HÍBRIDA</span>
@@ -510,9 +547,12 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Permite somar o tempo de trabalho rural não pago com o período urbano para atingir a carência.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-hibrida', 'Aposentadoria_Hibrida.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
-                <div class="card">
+                <div class="card" id="card-simulador">
                     <div>
                         <div class="card-header">
                             <span class="badge badge-blue">SIMULADOR</span>
@@ -523,6 +563,358 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
                             <p>Calcula em tempo real a idade, tempo de contribuição e quanto falta para atingir cada regra de aposentadoria.</p>
                         </div>
                     </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-simulador', 'Simulador_Aposentadoria.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: SALÁRIO-MATERNIDADE -->
+        <section class="category-section">
+            <div class="category-header maternidade-type">
+                <h2>3. Salário-Maternidade e Proteção à Família</h2>
+                <p>Proteção financeira nos casos de parto, adoção ou guarda judicial</p>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card" id="card-maternidade-urbano">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-rose">ESPÉCIE B80</span>
+                            <h3 class="card-title">Salário-Maternidade Urbano</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Empregada, Individual, Facultativa</span>
+                            <p>Pago durante o afastamento por parto, aborto não criminoso ou adoção de crianças.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-maternidade-urbano', 'Salario_Maternidade_Urbano.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-maternidade-rural">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-rose">ESPÉCIE B80 RURAL</span>
+                            <h3 class="card-title">Salário-Maternidade Rural</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Segurada Especial Rural</span>
+                            <p>Para trabalhadoras rurais comprovando a atividade no campo nos 10 meses anteriores ao parto.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-maternidade-rural', 'Salario_Maternidade_Rural.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: PENSÕES E AUXÍLIOS AOS DEPENDENTES -->
+        <section class="category-section">
+            <div class="category-header pensao-type">
+                <h2>4. Pensões por Morte e Benefícios para Dependentes</h2>
+                <p>Proteção financeira aos familiares do segurado falecido ou recluso</p>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card" id="card-pensao-urbana">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-red">ESPÉCIE B21</span>
+                            <h3 class="card-title">Pensão por Morte Urbana</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Dependentes Urbanos</span>
+                            <p>Concedida aos dependentes de segurado falecido que mantinha qualidade ou recebia benefício.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-pensao-urbana', 'Pensao_Por_Morte_Urbana.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-pensao-rural">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-red">ESPÉCIE B21 RURAL</span>
+                            <h3 class="card-title">Pensão por Morte Rural</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Dependentes Rurais</span>
+                            <p>Para dependentes do trabalhador rural com comprovação do exercício da atividade no campo.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-pensao-rural', 'Pensao_Por_Morte_Rural.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-auxilio-reclusao">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-red">ESPÉCIE B25</span>
+                            <h3 class="card-title">Auxílio-Reclusão</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Dependentes de Preso em Regime Fechado</span>
+                            <p>Pago aos dependentes de segurado de baixa renda recolhido à prisão sob regime fechado.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-auxilio-reclusao', 'Auxilio_Reclusao.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: BENEFÍCIOS ASSISTENCIAIS (BPC/LOAS) -->
+        <section class="category-section">
+            <div class="category-header bpc-type">
+                <h2>5. Benefícios Assistenciais (BPC / LOAS)</h2>
+                <p>Proteção social para idosos e pessoas com deficiência em vulnerabilidade econômica</p>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card" id="card-bpc-idoso">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-purple">ESPÉCIE B88</span>
+                            <h3 class="card-title">BPC / LOAS - Idoso (65 Anos ou Mais)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Lei Orgânica da Assistência Social</span>
+                            <p>Pago a idosos vulneráveis sem renda e com inscrição atualizada no CadÚnico do Governo Federal.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-bpc-idoso', 'BPC_LOAS_Idoso.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-bpc-pcd">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-purple">ESPÉCIE B87</span>
+                            <h3 class="card-title">BPC / LOAS - Pessoa com Deficiência</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Avaliação Médica e Social</span>
+                            <p>Para pessoas com impedimentos de longo prazo que comprovem baixa renda e estarem inscritas no CadÚnico.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-bpc-pcd', 'BPC_LOAS_PCD.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 6: ACERTOS CADASTRAIS E CNIS -->
+        <section class="category-section">
+            <div class="category-header cnis-type">
+                <h2>6. Gestão de Vida Laboral, CNIS e Acertos Cadastrais</h2>
+                <p>Atualizações de vínculos, acertos de vínculos e emissão de extrato CNIS</p>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card" id="card-cnis-extrato">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-cyan">CNIS</span>
+                            <h3 class="card-title">Extrato de Contribuição (CNIS)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Histórico Escritural Completo</span>
+                            <p>Emissão completa de todas as contribuições, vínculos empregatícios e remunerações registradas no INSS.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-cnis-extrato', 'Extrato_CNIS.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-acerto-vinculos">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-cyan">ACERTO CADASTRAL</span>
+                            <h3 class="card-title">Atualizar Vínculos e Remunerações (Acerto do CNIS)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Inclusão / Correção</span>
+                            <p>Inclusão de carteira de trabalho, alteração de salários ou acerto de períodos faltantes no extrato previdenciário.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-acerto-vinculos', 'Acerto_Vinculos_CNIS.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-ctc">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-cyan">CTC</span>
+                            <h3 class="card-title">Certidão de Tempo de Contribuição (CTC)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Servidor Público</span>
+                            <p>Certidão para averbação do tempo de trabalho prestado sob o regime geral (INSS) em órgãos públicos (RPPS).</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-ctc', 'Certidao_Tempo_Contribuicao_CTC.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 7: EXTRATOS, DECLARAÇÕES E IMPOSTO DE RENDA -->
+        <section class="category-section">
+            <div class="category-header extratos-type">
+                <h2>7. Extratos, Declarações e Comprovantes Oficiais</h2>
+                <p>Comprovante de rendimentos, declaração de benefício e informe de rendimentos IR</p>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card" id="card-extrato-pagamento">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">PAGAMENTOS</span>
+                            <h3 class="card-title">Extrato de Pagamento de Benefício (HISCRE)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Comprovante Financeiro</span>
+                            <p>Consulta detalhada dos valores pagos mensalmente, descontos e datas de depósito do seu benefício.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-extrato-pagamento', 'Extrato_Pagamento_HISCRE.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-informe-ir">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">IMPOSTO DE RENDA</span>
+                            <h3 class="card-title">Informe de Rendimentos para Imposto de Renda</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Declaração Anual IR</span>
+                            <p>Documento oficial exigido pela Receita Federal constando o total de rendimentos pagos pelo INSS no ano anterior.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-informe-ir', 'Informe_Rendimentos_IR.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-decl-beneficiario">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-teal">DECLARAÇÃO</span>
+                            <h3 class="card-title">Declaração de Beneficiário do INSS</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Nada Consta / Consta</span>
+                            <p>Emissão de comprovante atestando se a pessoa é ou não titular de algum benefício ativo no INSS.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-decl-beneficiario', 'Declaracao_Beneficiario_INSS.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 8: SERVIÇOS ADMINISTRATIVOS, RECURSOS E REVISÕES -->
+        <section class="category-section">
+            <div class="category-header servicos-type">
+                <h2>8. Revisões, Recursos e Alterações Administrativas</h2>
+                <p>Contestações de análises, pedido de revisões e alteração de dados bancários</p>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card" id="card-recurso">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">CONTESTAÇÃO</span>
+                            <h3 class="card-title">Recurso Ordinário / Especial ao CRPS</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Junta de Recursos</span>
+                            <p>Pedido de reavaliação de decisão indeferida pelo INSS enviada para o Conselho de Recursos da Previdência Social.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-recurso', 'Recurso_CRPS.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-revisao">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">REVISÃO</span>
+                            <h3 class="card-title">Revisão de Benefício</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Reanálise do Valor</span>
+                            <p>Solicitação para reavaliar o cálculo do benefício já concedido com inclusão de novas provas ou teses revisionais.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-revisao', 'Revisao_De_Beneficio.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+                <div class="card" id="card-alterar-banco">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">PAGAMENTO</span>
+                            <h3 class="card-title">Alterar Local ou Forma de Pagamento</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Mudança de Agência ou Conta</span>
+                            <p>Transferência da agência pagadora do benefício para outra cidade ou alteração do recebimento para conta corrente.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-alterar-banco', 'Alterar_Local_Pagamento.pdf')">
+                        📥 Baixar PDF
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 9: ACORDOS INTERNACIONAIS -->
+        <section class="category-section">
+            <div class="category-header especial-type">
+                <h2>9. Acordos Internacionais de Previdência</h2>
+                <p>Aposentadorias e pensões para trabalhadores residentes no exterior ou com períodos trabalhados fora</p>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card" id="card-acordo-internacional">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">EXTERIOR</span>
+                            <h3 class="card-title">Benefício Sob Tratado / Acordo Internacional</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Trabalho no Exterior</span>
+                            <p>Aproveitamento de tempo de contribuição prestado em países que possuem acordo previdenciário com o Brasil.</p>
+                        </div>
+                    </div>
+                    <button class="btn-pdf" onclick="downloadTopicPDF('card-acordo-internacional', 'Acordo_Internacional_INSS.pdf')">
+                        📥 Baixar PDF
+                    </button>
                 </div>
 
             </div>
@@ -644,21 +1036,25 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
             }
         }
 
-        // Função para gerar e baixar PDF individual de cada tópico
+        // Função para gerar e baixar PDF individual de qualquer tópico
         function downloadTopicPDF(cardId, fileName) {
             const cardElement = document.getElementById(cardId);
-            
+            if (!cardElement) return;
+
             // Cria um contêiner temporário estilizado para o PDF
             const container = document.createElement('div');
             container.style.padding = '30px';
             container.style.fontFamily = 'Arial, sans-serif';
             container.style.color = '#1e293b';
             
+            // Descobre a categoria do card pai
+            const sectionTitle = cardElement.closest('.category-section').querySelector('h2').innerText;
+
             // Cabeçalho do PDF
             const pdfHeader = `
                 <div style="border-bottom: 3px solid #1e3a8a; padding-bottom: 12px; margin-bottom: 20px;">
                     <h1 style="color: #0f172a; font-size: 20px; margin-bottom: 4px;">Meu INSS - Guia de Orientação e Serviço</h1>
-                    <p style="color: #64748b; font-size: 12px;">Categoria: Acesso à Conta gov.br, Senha Provisória e Código de Acesso</p>
+                    <p style="color: #64748b; font-size: 12px;">${sectionTitle}</p>
                 </div>
             `;
 
@@ -670,7 +1066,7 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
 
             // Adiciona rodapé no PDF
             const pdfFooter = `
-                <div style="margin-top: 40px; border-top: 1px solid #e2e8f0; pt-10px; font-size: 10px; color: #94a3b8; text-align: center;">
+                <div style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 10px; font-size: 10px; color: #94a3b8; text-align: center;">
                     <p>Documento gerado automaticamente pelo Catálogo Unificado Meu INSS</p>
                 </div>
             `;
@@ -692,4 +1088,3 @@ Ao clicar no botão de qualquer card dessa categoria, o sistema gera e faz o dow
 
 </body>
 </html>
-
