@@ -37,12 +37,13 @@
             margin: 0 auto;
         }
 
+        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: #ffffff;
             padding: 36px 28px;
             border-radius: 16px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
         }
 
@@ -59,6 +60,63 @@
             max-width: 750px;
         }
 
+        /* Campo de Pesquisa */
+        .search-container {
+            margin-bottom: 32px;
+            position: sticky;
+            top: 16px;
+            z-index: 100;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background-color: #ffffff;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            fill: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        /* Categoria */
         .category-section {
             margin-bottom: 40px;
         }
@@ -89,6 +147,7 @@
             color: var(--text-muted);
         }
 
+        /* Grid de Cards */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -109,6 +168,10 @@
         .card:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        .card.hidden {
+            display: none !important;
         }
 
         .card-header {
@@ -184,10 +247,24 @@
         
         <header>
             <h1>Portal de Benefícios do INSS & Acesso gov.br</h1>
-            <p>Consulte os requisitos por espécie, orientações para saques bloqueados e o passo a passo completo para criar ou recuperar sua senha da Conta gov.br.</p>
+            <p>Consulte requisitos por espécie, orientações para saques bloqueados e o passo a passo completo para criar ou recuperar sua senha da Conta gov.br.</p>
         </header>
 
-        <!-- CATEGORIA 1: CONTA GOV.BR E SENHAS (NOVA) -->
+        <!-- Barra de Pesquisa Interativa -->
+        <div class="search-container">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: B87, B41, Senha, Pagamento Bloqueado, Idade...)" onkeyup="filterCards()">
+            </div>
+        </div>
+
+        <div id="noResults" class="no-results">
+            🔍 Nenhum benefício ou serviço foi encontrado para o termo pesquisado.
+        </div>
+
+        <!-- CATEGORIA 1: CONTA GOV.BR -->
         <section class="category-section">
             <div class="category-header gov-type">
                 <h2>1. Conta gov.br (Criação e Recuperação de Senha)</h2>
@@ -206,12 +283,7 @@
                             <ol>
                                 <li>Acesse o site <strong>acesso.gov.br</strong> ou baixe o app <strong>gov.br</strong>.</li>
                                 <li>Digite seu número de <strong>CPF</strong> e clique em <strong>"Continuar"</strong>.</li>
-                                <li>Caso não tenha conta, escolha o método de validação:
-                                    <ul>
-                                        <li><strong>Validação Facial</strong> (App gov.br - Biometria da CNH/TSE).</li>
-                                        <li><strong>Bancos Credenciados</strong> (Internet Banking).</li>
-                                    </ul>
-                                </li>
+                                <li>Escolha a validação por <strong>Validação Facial</strong> (Biometria) ou <strong>Bancos Credenciados</strong>.</li>
                                 <li>Crie sua senha pessoal e confirme o cadastro.</li>
                             </ol>
                         </div>
@@ -228,14 +300,8 @@
                             <span class="req-label">Passo a Passo de Recuperação</span>
                             <ol>
                                 <li>Acesse <strong>acesso.gov.br</strong>, digite seu <strong>CPF</strong> e clique em <strong>"Esqueci minha senha"</strong>.</li>
-                                <li>Escolha a melhor opção de recuperação disponível:
-                                    <ul>
-                                        <li><strong>Reconhecimento Facial:</strong> Tira foto pelo aplicativo.</li>
-                                        <li><strong>Banco Credenciado:</strong> Entra com a senha do seu banco.</li>
-                                        <li><strong>E-mail ou SMS:</strong> Envia um código de validação.</li>
-                                    </ul>
-                                </li>
-                                <li>Digite o código recebido, crie a nova senha e tente realizar o login novamente.</li>
+                                <li>Escolha a opção de recuperação: <strong>Reconhecimento Facial</strong>, <strong>Banco Credenciado</strong>, <strong>E-mail</strong> ou <strong>SMS</strong>.</li>
+                                <li>Digite o código recebido, crie a nova senha e faça o login.</li>
                             </ol>
                         </div>
                     </div>
@@ -252,7 +318,7 @@
                             <p>Serviços como liberação de pagamentos exigem selo de verificação no gov.br:</p>
                             <ul>
                                 <li><strong>Aumentar para Prata:</strong> Faça login utilizando as credenciais do seu Banco (Banco do Brasil, Caixa, Bradesco, Itaú, etc.).</li>
-                                <li><strong>Aumentar para Ouro:</strong> Realize a Validação Facial cruzando dados com a Carteira de Motorista (CNH) ou utilize a verificação via Certificado Digital.</li>
+                                <li><strong>Aumentar para Ouro:</strong> Realize a Validação Facial cruzando dados com a Carteira de Motorista (CNH) ou Certificado Digital.</li>
                             </ul>
                         </div>
                     </div>
@@ -295,7 +361,7 @@
                                 <li>Acesse o app ou site <strong>Meu INSS</strong> com a senha gov.br.</li>
                                 <li>Clique na opção <strong>"Novo Pedido"</strong>.</li>
                                 <li>Digite na busca: <strong>"Solicitar Pagamento Não Recebido"</strong>.</li>
-                                <li>Atualize seus dados, anexe seu RG/CNH e confirme o envio para emissão do novo pagamento.</li>
+                                <li>Atualize seus dados, anexe seu RG/CNH e confirme o envio.</li>
                             </ol>
                         </div>
                     </div>
@@ -418,6 +484,44 @@
         </footer>
 
     </div>
+
+    <!-- Script de Filtro em Tempo Real -->
+    <script>
+        function filterCards() {
+            const input = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
+            const sections = document.querySelectorAll('.category-section');
+            const noResults = document.getElementById('noResults');
+            let totalVisible = 0;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    card.classList.remove('hidden');
+                    totalVisible++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Esconde seções vazias que não possuem nenhum cartão visível
+            sections.forEach(section => {
+                const visibleCards = section.querySelectorAll('.card:not(.hidden)');
+                if (visibleCards.length === 0) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+
+            // Exibe mensagem caso nenhum resultado seja encontrado
+            if (totalVisible === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>
