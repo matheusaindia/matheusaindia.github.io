@@ -12,6 +12,7 @@
             --accent-red: #dc2626;
             --accent-amber: #d97706;
             --accent-green: #16a34a;
+            --accent-indigo: #4f46e5;
             --bg-body: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
@@ -139,6 +140,10 @@
             border-left-color: var(--accent-green);
         }
 
+        .category-header.extrato-type {
+            border-left-color: var(--accent-indigo);
+        }
+
         .category-header h2 {
             font-size: 1.35rem;
             color: var(--primary);
@@ -197,6 +202,7 @@
         .badge-purple { background-color: #f3e8ff; color: #6b21a8; }
         .badge-red { background-color: #fee2e2; color: #991b1b; }
         .badge-amber { background-color: #fef3c7; color: #92400e; }
+        .badge-indigo { background-color: #e0e7ff; color: #3730a3; }
 
         .card-title {
             font-size: 1.15rem;
@@ -251,7 +257,7 @@
         
         <header>
             <h1>Portal de Benefícios do INSS & Acesso gov.br</h1>
-            <p>Consulte requisitos por espécie, empréstimos, pagamentos bloqueados e o passo a passo para gerenciar sua senha gov.br.</p>
+            <p>Consulte requisitos por espécie, empréstimos, extratos, atualização de vínculos e o passo a passo para gerenciar sua conta no Meu INSS.</p>
         </header>
 
         <!-- Barra de Pesquisa Interativa -->
@@ -260,7 +266,7 @@
                 <svg class="search-icon" viewBox="0 0 24 24">
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 </svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: Empréstimo, Salário Maternidade, Senha Provisória, B80, B87...)" onkeyup="filterCards()">
+                <input type="text" id="searchInput" class="search-input" placeholder="Digite o que procura (ex: Extrato Imposto de Renda, Local de Pagamento, CNIS, Reabilitação, Consignado...)" onkeyup="filterCards()">
             </div>
         </div>
 
@@ -268,10 +274,89 @@
             🔍 Nenhum benefício ou serviço foi encontrado para o termo pesquisado.
         </div>
 
-        <!-- CATEGORIA 1: CONTA GOV.BR E SENHAS -->
+        <!-- CATEGORIA 1: SERVIÇOS E EXTRATOS DO MEU INSS (NOVA CATEGORIA) -->
+        <section class="category-section">
+            <div class="category-header extrato-type">
+                <h2>1. Extratos e Serviços do Meu INSS</h2>
+                <p>Emissão de documentos oficiais, alterações bancárias e atualização de cadastro</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">BANCO E CONTA</span>
+                            <h3 class="card-title">Alterar Forma ou Local de Pagamento</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Como Solicitar a Troca</span>
+                            <ol>
+                                <li>Acesse o <strong>Meu INSS</strong> com CPF e senha gov.br.</li>
+                                <li>Busque por: <strong>"Alterar Local ou Forma de Pagamento"</strong>.</li>
+                                <li>Selecione se deseja mudar para outro banco ou para conta corrente/poupança existente em seu nome.</li>
+                                <li>Informe a agência/conta pretendida e confirme a solicitação.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">CADASTRO E CNIS</span>
+                            <h3 class="card-title">Atualizar Dados, Vínculos e Remunerações</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Ajuste de Histórico de Trabalho</span>
+                            <ol>
+                                <li>No Meu INSS, busque por <strong>"Atualizar Vínculos e Remunerações"</strong> ou <strong>"Atualizar Cadastro"</strong>.</li>
+                                <li>Anexe comprovantes dos vínculos não reconhecidos (Carteira de Trabalho, contracheques, termo de rescisão, etc.).</li>
+                                <li>Corrija dados pessoais (nome, endereço, documentos) enviando cópia do RG/CPF.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">DECLARAÇÕES</span>
+                            <h3 class="card-title">Extratos: Pagamentos, IR e Consignado</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Emissão Rápida de Comprovantes</span>
+                            <ul>
+                                <li><strong>Extrato de Pagamento:</strong> Detalha os valores mensais e descontos aplicados no benefício.</li>
+                                <li><strong>Extrato de Imposto de Renda (Informe de Rendimentos):</strong> Usado para a declaração anual do IR.</li>
+                                <li><strong>Extrato de Empréstimo Consignado:</strong> Exibe todos os contratos ativos, margem disponível e parcelas registradas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-indigo">SAÚDE E ORIENTAÇÃO</span>
+                            <h3 class="card-title">Reabilitação Profissional e Atendimento Simplificado</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Avaliação e Orientações</span>
+                            <ul>
+                                <li><strong>Avaliação Sócio-Profissional:</strong> Perícia e análise do perfil para reinserção no mercado de trabalho após incapacidade.</li>
+                                <li><strong>Atendimento Simplificado / Orientação:</strong> Agendamento para tirar dúvidas presencialmente ou obter suporte de navegação no portal Meu INSS.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: CONTA GOV.BR E SENHAS -->
         <section class="category-section">
             <div class="category-header gov-type">
-                <h2>1. Conta gov.br (Acesso, Senhas e Provisória)</h2>
+                <h2>2. Conta gov.br (Acesso, Senhas e Provisória)</h2>
                 <p>Gerenciamento de credenciais e primeiro acesso ao sistema gov.br</p>
             </div>
             <div class="cards-grid">
@@ -289,7 +374,6 @@
                                 <li>Digite seu <strong>CPF</strong> e clique em <strong>"Continuar"</strong>.</li>
                                 <li>Digite a <strong>Senha Provisória</strong> recebida no campo de senha.</li>
                                 <li>O sistema solicitará imediatamente a criação de uma <strong>Nova Senha Definitiva</strong>.</li>
-                                <li>Crie uma nova senha forte (letras, números e símbolos) e confirme.</li>
                             </ol>
                         </div>
                     </div>
@@ -333,10 +417,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 2: SERVIÇOS DE BENEFÍCIOS (EMPRÉSTIMOS E BLOQUEIOS) -->
+        <!-- CATEGORIA 3: SOLUÇÕES PARA PAGAMENTOS E EMPRÉSTIMOS -->
         <section class="category-section">
             <div class="category-header alert-type">
-                <h2>2. Soluções para Pagamentos e Empréstimos</h2>
+                <h2>3. Soluções para Pagamentos e Empréstimos</h2>
                 <p>Bloqueios, desbloqueios para consignado e resgate de pagamentos retidos</p>
             </div>
             <div class="cards-grid">
@@ -354,9 +438,8 @@
                                 <li>Na barra de pesquisa principal, digite: <strong>"Bloqueio/Desbloqueio"</strong>.</li>
                                 <li>Selecione o serviço <strong>"Bloqueio/Desbloqueio de Benefício para Empréstimo"</strong>.</li>
                                 <li>Escolha a opção <strong>"Desbloquear"</strong>.</li>
-                                <li>Siga as instruções, anexe documento com foto (RG/CNH) e conclua o pedido.</li>
+                                <li>Anexe documento com foto (RG/CNH) e conclua o pedido.</li>
                             </ol>
-                            <p style="margin-top: 8px; font-size: 0.8rem; color: #dc2626;"><em>Nota: Benefícios novos possuem bloqueio automático por 30 dias após a concessão.</em></p>
                         </div>
                     </div>
                 </div>
@@ -378,10 +461,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 3: AUXÍLIOS E SALÁRIO-MATERNIDADE -->
+        <!-- CATEGORIA 4: AUXÍLIOS E SALÁRIO-MATERNIDADE -->
         <section class="category-section">
             <div class="category-header service-type">
-                <h2>3. Auxílios e Salário-Maternidade</h2>
+                <h2>4. Auxílios e Salário-Maternidade</h2>
                 <p>Benefícios temporários, regras de concessão e solicitação</p>
             </div>
             <div class="cards-grid">
@@ -394,15 +477,10 @@
                         </div>
                         <div class="card-body">
                             <span class="req-label">Requisitos e Regras</span>
-                            <p><strong>Duração:</strong> 120 dias (parto, adoção ou guarda judicial para fins de adoção) ou 14 dias em casos de aborto não criminoso.</p>
-                            <p><strong>Carência:</strong> 
-                                <ul>
-                                    <li><strong>Isento:</strong> Empregadas de carteira assinada e domésticas.</li>
-                                    <li><strong>10 meses:</strong> Contribuintes individuais (autônomas) e facultativas.</li>
-                                </ul>
-                            </p>
+                            <p><strong>Duração:</strong> 120 dias (parto, adoção ou guarda judicial para fins de adoção).</p>
+                            <p><strong>Carência:</strong> Isento para empregadas formais; 10 meses de contribuição para autônomas e facultativas.</p>
                             <span class="req-label" style="margin-top: 8px;">Como Solicitar</span>
-                            <p>No app Meu INSS &rarr; <strong>"Novo Pedido"</strong> &rarr; digite <strong>"Salário-Maternidade"</strong> e anexe a Certidão de Nascimento do bebê.</p>
+                            <p>No Meu INSS &rarr; <strong>"Novo Pedido"</strong> &rarr; digite <strong>"Salário-Maternidade"</strong> e anexe a Certidão de Nascimento do bebê.</p>
                         </div>
                     </div>
                 </div>
@@ -416,7 +494,7 @@
                         <div class="card-body">
                             <span class="req-label">Critérios de Concessão</span>
                             <p><strong>Duração:</strong> Afastamento superior a 15 dias consecutivos de trabalho.</p>
-                            <p><strong>Carência:</strong> 12 contribuições mensais (isento para acidentes do trabalho ou doenças graves especificadas em lei).</p>
+                            <p><strong>Carência:</strong> 12 contribuições mensais (isento para acidentes do trabalho ou doenças graves em lei).</p>
                         </div>
                     </div>
                 </div>
@@ -424,10 +502,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 4: APOSENTADORIAS -->
+        <!-- CATEGORIA 5: APOSENTADORIAS -->
         <section class="category-section">
             <div class="category-header">
-                <h2>4. Aposentadorias (Requisitos de Idade e Tempo)</h2>
+                <h2>5. Aposentadorias (Requisitos de Idade e Tempo)</h2>
                 <p>Regras vigentes de concessão após a Reforma da Previdência</p>
             </div>
             <div class="cards-grid">
@@ -442,7 +520,7 @@
                             <span class="req-label">Critérios de Concessão</span>
                             <p><strong>Idade Mulher:</strong> 62 anos completos.</p>
                             <p><strong>Idade Homem:</strong> 65 anos completos.</p>
-                            <p><strong>Carência:</strong> Mínimo de 15 anos (180 meses) de contribuição para ambos os sexos.</p>
+                            <p><strong>Carência:</strong> Mínimo de 15 anos (180 meses) de contribuição.</p>
                         </div>
                     </div>
                 </div>
@@ -472,7 +550,6 @@
                             <span class="req-label">Critérios de Concessão</span>
                             <p><strong>Idade:</strong> Não há idade mínima.</p>
                             <p><strong>Carência:</strong> 12 meses de contribuição (dispensada em acidentes ou doenças graves).</p>
-                            <p><strong>Avaliação:</strong> Laudo conclusivo da Perícia Médica Federal.</p>
                         </div>
                     </div>
                 </div>
@@ -480,10 +557,10 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 5: ASSISTENCIAIS (LOAS/BPC) -->
+        <!-- CATEGORIA 6: ASSISTENCIAIS (LOAS/BPC) -->
         <section class="category-section">
             <div class="category-header">
-                <h2>5. Benefícios Assistenciais (LOAS / BPC)</h2>
+                <h2>6. Benefícios Assistenciais (LOAS / BPC)</h2>
                 <p>Suporte financeiro sem exigência de contribuição previdenciária</p>
             </div>
             <div class="cards-grid">
