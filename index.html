@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -152,6 +153,7 @@
         .category-header.servicos-type { border-left-color: var(--accent-indigo); }
         .category-header.cnis-type { border-left-color: var(--accent-cyan); }
         .category-header.extratos-type { border-left-color: var(--accent-teal); }
+        .category-header.gov-type { border-left-color: var(--accent-amber); }
 
         .category-header h2 {
             font-size: 1.35rem;
@@ -269,7 +271,7 @@
         
         <header>
             <h1>Catálogo Exaustivo de Serviços e Benefícios - Meu INSS</h1>
-            <p>Lista completa e sem exceções de todos os requerimentos, benefícios, consultas de CNIS, extratos, revisões, recursos, acertos cadastrais e agendamentos.</p>
+            <p>Lista completa e sem exceções de todos os requerimentos, benefícios, consultas de CNIS, extratos, revisões, recursos, acertos cadastrais, agendamentos e gestão de acesso à conta gov.br.</p>
             <span class="tag-year">Portal do Meu INSS - Mapeamento Completo</span>
         </header>
 
@@ -277,9 +279,9 @@
         <div class="search-container">
             <div class="search-box">
                 <svg class="search-icon" viewBox="0 0 24 24">
-                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 11.99 14 9.5 14z"/>
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 </svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Digite para buscar qualquer serviço (Ex: CNIS, Imposto de Renda, Atestmed, CTC, Pobreza Menstrual, Consignado, BPC, Prova de Vida...)" onkeyup="filterCards()">
+                <input type="text" id="searchInput" class="search-input" placeholder="Digite para buscar qualquer serviço (Ex: Senha Provisória 24h, Código de Acesso, CNIS, Imposto de Renda, Atestmed, CTC...)" onkeyup="filterCards()">
             </div>
         </div>
 
@@ -774,7 +776,7 @@
                         </div>
                         <div class="card-body">
                             <span class="req-label">Informações Cadastrais</span>
-                            <p>Atualização de endereço, telefone, e-mail, nome de casado(a) e correção de documentos (CPF/RG/RG) no sistema.</p>
+                            <p>Atualização de endereço, telefone, e-mail, nome de casado(a) e correção de documentos (CPF/RG) no sistema.</p>
                         </div>
                     </div>
                 </div>
@@ -986,7 +988,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 9: RECURSOS, REVISÕES, CÓPIAS E SERVIÇOS DO SERVIDOR (RPPS) -->
+        <!-- SEÇÃO 9: RECURSOS, REVISÕES E CÓPIAS DE PROCESSO -->
         <section class="category-section">
             <div class="category-header servicos-type">
                 <h2>9. Processos, Recursos, Revisões, Cópia de Processo e RPPS</h2>
@@ -1075,6 +1077,69 @@
             </div>
         </section>
 
+        <!-- SEÇÃO 10: ACESSO À CONTA GOV.BR E SENHA PROVISÓRIA -->
+        <section class="category-section">
+            <div class="category-header gov-type">
+                <h2>10. Acesso à Conta gov.br, Senha Provisória e Código de Acesso</h2>
+                <p>Gestão de credenciais de acesso, recuperação de senha de 24h e suporte de nível de conta</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">SENHA PROVISÓRIA 24H</span>
+                            <h3 class="card-title">Cadastrar / Emitir Senha gov.br Provisória (Validade de 24 horas)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Atendimento Presencial ou Caixa/Bancos</span>
+                            <p>Geração de código/senha temporária presencialmente nas agências do INSS ou através dos caixas eletrônicos do Banco do Brasil e Caixa Econômica. A senha é **válida por 24 horas** e exige alteração imediata no primeiro login no gov.br.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">CÓDIGO DE ACESSO</span>
+                            <h3 class="card-title">Recuperar Código de Acesso / Redefinir Senha gov.br</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Recuperação Digital</span>
+                            <p>Procedimento para redefinir a senha através do envio de código de validação via SMS, e-mail cadastrado ou reconhecimento facial pelo aplicativo gov.br.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">VALIDAÇÃO BANCÁRIA</span>
+                            <h3 class="card-title">Recuperação de Senha via Validação de Dados Bancários</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Nível Prata</span>
+                            <p>Recuperação do acesso à conta realizando login com a senha do banco credenciado (BB, Caixa, Bradesco, Itaú, Santander, Sindicred, Banrisul), elevando automaticamente a conta para o Nível Prata.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">AUMENTAR NÍVEL</span>
+                            <h3 class="card-title">Aumentar Nível da Conta gov.br (Bronze para Prata / Ouro)</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Acesso Total aos Serviços</span>
+                            <p>Orientação e validação biométrica (TSE/CNH) para subir a conta do nível Bronze ao nível Prata ou Ouro, necessário para realizar agendamentos, assinar documentos e solicitar benefícios complexos.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <footer>
             <p>Portal Unificado de Referência Completa do Meu INSS - Todos os Direitos Reservados</p>
         </footer>
@@ -1119,3 +1184,4 @@
 
 </body>
 </html>
+
