@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Benefícios do INSS - Espécies Atualizadas</title>
+    <title>Portal de Benefícios do INSS e Serviços gov.br</title>
     <style>
         :root {
             --primary: #0f172a;
             --secondary: #1e3a8a;
             --accent-blue: #2563eb;
+            --accent-red: #dc2626;
+            --accent-amber: #d97706;
             --bg-body: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #1e293b;
@@ -35,7 +37,6 @@
             margin: 0 auto;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: #ffffff;
@@ -55,10 +56,9 @@
         header p {
             color: #93c5fd;
             font-size: 1.05rem;
-            max-width: 700px;
+            max-width: 750px;
         }
 
-        /* Seção e Títulos */
         .category-section {
             margin-bottom: 40px;
         }
@@ -67,6 +67,14 @@
             border-left: 4px solid var(--accent-blue);
             padding-left: 12px;
             margin-bottom: 20px;
+        }
+
+        .category-header.alert-type {
+            border-left-color: var(--accent-red);
+        }
+
+        .category-header.gov-type {
+            border-left-color: var(--accent-amber);
         }
 
         .category-header h2 {
@@ -81,14 +89,12 @@
             color: var(--text-muted);
         }
 
-        /* Responsive Grid de Cards */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 20px;
         }
 
-        /* Estilo dos Cards */
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -119,11 +125,11 @@
             margin-bottom: 8px;
         }
 
-        /* Cores das Badges por Categoria */
         .badge-blue { background-color: #dbeafe; color: #1e40af; }
         .badge-green { background-color: #dcfce7; color: #166534; }
-        .badge-amber { background-color: #fef3c7; color: #92400e; }
         .badge-purple { background-color: #f3e8ff; color: #6b21a8; }
+        .badge-red { background-color: #fee2e2; color: #991b1b; }
+        .badge-amber { background-color: #fef3c7; color: #92400e; }
 
         .card-title {
             font-size: 1.15rem;
@@ -145,17 +151,23 @@
             color: var(--text-muted);
             margin-bottom: 6px;
             letter-spacing: 0.5px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 4px;
         }
 
         .card-body p {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .card-body p:last-child {
-            margin-bottom: 0;
+        .card-body ul, .card-body ol {
+            margin-left: 16px;
+            margin-top: 4px;
         }
 
-        /* Footer */
+        .card-body li {
+            margin-bottom: 4px;
+        }
+
         footer {
             text-align: center;
             padding: 24px;
@@ -171,15 +183,132 @@
     <div class="container">
         
         <header>
-            <h1>Benefícios do INSS e Suas Espécies</h1>
-            <p>Guia estruturado com os códigos das espécies previdenciárias e assistenciais atualizados.</p>
+            <h1>Portal de Benefícios do INSS & Acesso gov.br</h1>
+            <p>Consulte os requisitos por espécie, orientações para saques bloqueados e o passo a passo completo para criar ou recuperar sua senha da Conta gov.br.</p>
         </header>
 
-        <!-- CATEGORIA 1: APOSENTADORIAS -->
+        <!-- CATEGORIA 1: CONTA GOV.BR E SENHAS (NOVA) -->
+        <section class="category-section">
+            <div class="category-header gov-type">
+                <h2>1. Conta gov.br (Criação e Recuperação de Senha)</h2>
+                <p>O acesso ao Meu INSS exige uma conta gov.br em nível Prata ou Ouro</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">CADASTRAR</span>
+                            <h3 class="card-title">Como Obter a Senha gov.br</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Passo a Passo Inicial</span>
+                            <ol>
+                                <li>Acesse o site <strong>acesso.gov.br</strong> ou baixe o app <strong>gov.br</strong>.</li>
+                                <li>Digite seu número de <strong>CPF</strong> e clique em <strong>"Continuar"</strong>.</li>
+                                <li>Caso não tenha conta, escolha o método de validação:
+                                    <ul>
+                                        <li><strong>Validação Facial</strong> (App gov.br - Biometria da CNH/TSE).</li>
+                                        <li><strong>Bancos Credenciados</strong> (Internet Banking).</li>
+                                    </ul>
+                                </li>
+                                <li>Crie sua senha pessoal e confirme o cadastro.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">RECUPERAR ACESSO</span>
+                            <h3 class="card-title">Recuperação de Senha / Bloqueio</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Passo a Passo de Recuperação</span>
+                            <ol>
+                                <li>Acesse <strong>acesso.gov.br</strong>, digite seu <strong>CPF</strong> e clique em <strong>"Esqueci minha senha"</strong>.</li>
+                                <li>Escolha a melhor opção de recuperação disponível:
+                                    <ul>
+                                        <li><strong>Reconhecimento Facial:</strong> Tira foto pelo aplicativo.</li>
+                                        <li><strong>Banco Credenciado:</strong> Entra com a senha do seu banco.</li>
+                                        <li><strong>E-mail ou SMS:</strong> Envia um código de validação.</li>
+                                    </ul>
+                                </li>
+                                <li>Digite o código recebido, crie a nova senha e tente realizar o login novamente.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-amber">CÓDIGO DE ACESSO</span>
+                            <h3 class="card-title">Gerar Código de Acesso / Nível</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Aumento de Nível (Prata/Ouro)</span>
+                            <p>Serviços como liberação de pagamentos exigem selo de verificação no gov.br:</p>
+                            <ul>
+                                <li><strong>Aumentar para Prata:</strong> Faça login utilizando as credenciais do seu Banco (Banco do Brasil, Caixa, Bradesco, Itaú, etc.).</li>
+                                <li><strong>Aumentar para Ouro:</strong> Realize a Validação Facial cruzando dados com a Carteira de Motorista (CNH) ou utilize a verificação via Certificado Digital.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: PAGAMENTO NÃO RECEBIDO / BLOQUEADO -->
+        <section class="category-section">
+            <div class="category-header alert-type">
+                <h2>2. Pagamentos Bloqueados ou Não Recebidos</h2>
+                <p>Como regularizar valores retidos, suspensos ou não sacados no prazo regulamentar</p>
+            </div>
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-red">SERVIÇO MEU INSS</span>
+                            <h3 class="card-title">Solicitar Pagamento Não Recebido</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Quando Utilizar</span>
+                            <p>Indicado caso o benefício esteja ativo, mas o dinheiro não caiu na conta ou expirou o prazo de 60 dias para saque no banco (recolhimento por ausência de saque).</p>
+                            <p><strong>Motivos comuns:</strong> Cadastro desatualizado, falta de perícia ou ausência de Prova de Vida.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="badge badge-red">PASSO A PASSO</span>
+                            <h3 class="card-title">Como Solicitar a Liberação</h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="req-label">Etapas Digitais no Meu INSS</span>
+                            <ol>
+                                <li>Acesse o app ou site <strong>Meu INSS</strong> com a senha gov.br.</li>
+                                <li>Clique na opção <strong>"Novo Pedido"</strong>.</li>
+                                <li>Digite na busca: <strong>"Solicitar Pagamento Não Recebido"</strong>.</li>
+                                <li>Atualize seus dados, anexe seu RG/CNH e confirme o envio para emissão do novo pagamento.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATEGORIA 3: APOSENTADORIAS -->
         <section class="category-section">
             <div class="category-header">
-                <h2>1. Aposentadorias</h2>
-                <p>Benefícios definitivos para segurados urbanos, rurais e especiais</p>
+                <h2>3. Aposentadorias (Requisitos de Idade e Tempo)</h2>
+                <p>Regras vigentes de concessão após a Reforma da Previdência</p>
             </div>
             <div class="cards-grid">
                 
@@ -190,9 +319,10 @@
                             <h3 class="card-title">Aposentadoria por Idade Urbana</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p><strong>Idade Mínima:</strong> 65 anos (Homens) / 62 anos (Mulheres).</p>
-                            <p><strong>Carência:</strong> 15 anos de contribuição (180 contribuições mensais).</p>
+                            <span class="req-label">Critérios de Concessão</span>
+                            <p><strong>Idade Mulher:</strong> 62 anos completos.</p>
+                            <p><strong>Idade Homem:</strong> 65 anos completos.</p>
+                            <p><strong>Carência:</strong> Mínimo de 15 anos (180 meses) de contribuição para ambos os sexos.</p>
                         </div>
                     </div>
                 </div>
@@ -204,22 +334,10 @@
                             <h3 class="card-title">Aposentadoria por Idade Rural</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p><strong>Idade Mínima:</strong> 60 anos (Homens) / 55 anos (Mulheres).</p>
-                            <p><strong>Comprovação:</strong> 15 anos de trabalho e atividade na agricultura familiar/trabalho rural.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-blue">ESPÉCIE B42</span>
-                            <h3 class="card-title">Tempo de Contribuição</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Direito adquirido pré-Reforma ou regras de transição vigentes (Pontos, Pedágio 50%, Pedágio 100% ou Idade Progressiva).</p>
+                            <span class="req-label">Critérios de Concessão</span>
+                            <p><strong>Idade Mulher:</strong> 55 anos completos.</p>
+                            <p><strong>Idade Homem:</strong> 60 anos completos.</p>
+                            <p><strong>Atividade:</strong> Comprovação de 15 anos de trabalho na atividade rural/agricultura familiar.</p>
                         </div>
                     </div>
                 </div>
@@ -231,34 +349,10 @@
                             <h3 class="card-title">Incapacidade Permanente</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Antiga Aposentadoria por Invalidez. Exige incapacidade total e permanente verificada por perícia médica do INSS.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-blue">ESPÉCIE B57 / B46</span>
-                            <h3 class="card-title">Aposentadoria Especial</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Comprovação de trabalho sob exposição ininterrupta a agentes nocivos à saúde (15, 20 ou 25 anos de atividade especial).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-blue">ESPÉCIE B85 / B86</span>
-                            <h3 class="card-title">Aposentadoria PcD</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Destinada à Pessoa com Deficiência. Regras diferenciadas por Idade (B85) ou Tempo de Contribuição (B86) conforme o grau da deficiência.</p>
+                            <span class="req-label">Critérios de Concessão</span>
+                            <p><strong>Idade:</strong> Não há idade mínima.</p>
+                            <p><strong>Carência:</strong> 12 meses de contribuição (dispensada em acidentes de trabalho ou doenças graves em lei).</p>
+                            <p><strong>Avaliação:</strong> Laudo conclusivo da Perícia Médica Federal.</p>
                         </div>
                     </div>
                 </div>
@@ -266,11 +360,11 @@
             </div>
         </section>
 
-        <!-- CATEGORIA 2: AUXÍLIOS -->
+        <!-- CATEGORIA 4: BENEFÍCIOS TEMPORÁRIOS E ASSISTENCIAIS -->
         <section class="category-section">
             <div class="category-header">
-                <h2>2. Auxílios e Benefícios Temporários</h2>
-                <p>Afazeres temporários, acidentes, maternidade e suporte familiar</p>
+                <h2>4. Auxílios e Benefícios Assistenciais (LOAS)</h2>
+                <p>Suporte financeiro para casos de saúde e vulnerabilidade social</p>
             </div>
             <div class="cards-grid">
                 
@@ -281,147 +375,9 @@
                             <h3 class="card-title">Incapacidade Temporária</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Antigo Auxílio-Doença previdenciário. Exige afastamento do trabalho por mais de 15 dias e carência de 12 meses.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-green">ESPÉCIE B91</span>
-                            <h3 class="card-title">Auxílio-Incapacidade Acidentário</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Decorrente de acidente de trabalho ou doença ocupacional. Sem exigência de carência e com estabilidade profissional de 12 meses.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-green">ESPÉCIE B36</span>
-                            <h3 class="card-title">Auxílio-Acidente</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Benefício indenizatório pago ao segurado que desenvolve sequela permanente que reduz a capacidade laboral após a consolidação das lesões.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-green">ESPÉCIE B80</span>
-                            <h3 class="card-title">Salário-Maternidade</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Pago no afastamento por parto, adoção, guarda judicial ou aborto não criminoso. Duração padrão de 120 dias.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-green">ESPÉCIE B25</span>
-                            <h3 class="card-title">Auxílio-Reclusão</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Devido aos dependentes do segurado de baixa renda preso em regime fechado. Exige carência mínima de 24 meses de contribuição.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-green">ESPÉCIE B09</span>
-                            <h3 class="card-title">Salário-Família</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Valor adicional pago proporcionalmente por filho de até 14 anos (ou inválido) para trabalhadores com renda dentro do teto legal de baixa renda.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CATEGORIA 3: PENSÕES -->
-        <section class="category-section">
-            <div class="category-header">
-                <h2>3. Pensões por Morte</h2>
-                <p>Proteção financeira aos dependentes do segurado falecido</p>
-            </div>
-            <div class="cards-grid">
-                
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-amber">ESPÉCIE B21</span>
-                            <h3 class="card-title">Pensão por Morte Urbana</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Paga aos dependentes do segurado urbano falecido (cônjuge, companheiro, filhos menores ou inválidos).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-amber">ESPÉCIE B22</span>
-                            <h3 class="card-title">Pensão por Morte Rural</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Devida aos dependentes do trabalhador ou segurado especial rural, mediante comprovação do trabalho no campo.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-amber">ESPÉCIE B93</span>
-                            <h3 class="card-title">Pensão por Acidente de Trabalho</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Concedida aos dependentes quando o falecimento do segurado for consequência direta de acidente ou doença de trabalho.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CATEGORIA 4: BENEFÍCIOS ASSISTENCIAIS -->
-        <section class="category-section">
-            <div class="category-header">
-                <h2>4. Benefícios Assistenciais (LOAS / BPC)</h2>
-                <p>Garantia de renda sem necessidade de contribuições anteriores ao INSS</p>
-            </div>
-            <div class="cards-grid">
-                
-                <div class="card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-purple">ESPÉCIE B87</span>
-                            <h3 class="card-title">BPC - Pessoa com Deficiência</h3>
-                        </div>
-                        <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Paga 1 salário mínimo mensal. Exige comprovação de deficiência de longo prazo + Renda familiar por pessoa de até 1/4 do salário mínimo + CadÚnico.</p>
+                            <span class="req-label">Critérios de Concessão</span>
+                            <p><strong>Duração:</strong> Afastamento superior a 15 dias consecutivos.</p>
+                            <p><strong>Carência:</strong> 12 contribuições mensais (isento para acidentes do trabalho).</p>
                         </div>
                     </div>
                 </div>
@@ -430,11 +386,12 @@
                     <div>
                         <div class="card-header">
                             <span class="badge badge-purple">ESPÉCIE B88</span>
-                            <h3 class="card-title">BPC - Idoso (65 anos ou +)</h3>
+                            <h3 class="card-title">BPC Idoso</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Paga 1 salário mínimo a idosos com 65 anos ou mais em situação de vulnerabilidade social e renda familiar reduzida.</p>
+                            <span class="req-label">Critérios de Concessão</span>
+                            <p><strong>Idade Mínima:</strong> 65 anos de idade completos.</p>
+                            <p><strong>Renda Familiar:</strong> Renda mensal por pessoa de até 1/4 do salário mínimo + CadÚnico ativo.</p>
                         </div>
                     </div>
                 </div>
@@ -442,12 +399,13 @@
                 <div class="card">
                     <div>
                         <div class="card-header">
-                            <span class="badge badge-purple">ESPÉCIE B18</span>
-                            <h3 class="card-title">Auxílio-Inclusão</h3>
+                            <span class="badge badge-purple">ESPÉCIE B87</span>
+                            <h3 class="card-title">BPC Pessoa com Deficiência</h3>
                         </div>
                         <div class="card-body">
-                            <span class="req-label">Requisitos Básicos</span>
-                            <p>Pago no valor de 50% do BPC ao beneficiário PcD que ingressa no mercado de trabalho formal com carteira assinada.</p>
+                            <span class="req-label">Critérios de Concessão</span>
+                            <p><strong>Idade Mínima:</strong> Sem limite de idade.</p>
+                            <p><strong>Exigências:</strong> Impedimentos físicos/mentais de longo prazo (mínimo 2 anos) e renda per capita até 1/4 do salário mínimo.</p>
                         </div>
                     </div>
                 </div>
@@ -456,7 +414,7 @@
         </section>
 
         <footer>
-            <p>Guia de Benefícios e Espécies do INSS &bull; Layout em Cards Responsivos</p>
+            <p>Guia Completo do INSS & Portal gov.br &bull; Atualizado e Responsivo</p>
         </footer>
 
     </div>
